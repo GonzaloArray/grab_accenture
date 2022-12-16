@@ -1,9 +1,12 @@
 <script setup>
+import Todo from '../components/Todo.vue';
+
+
 
 </script>
 
 <template>
-    <h2>Dashboard</h2>
+    <Todo />
 </template>
 
 <style>

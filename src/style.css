@@ -1,0 +1,18 @@
+:root{
+    --font-title: 'Nunito', sans-serif;
+    --font-text: 'Roboto', sans-serif;
+
+    --primary:#023047;
+    --second: #fb8500;
+    --thrid:#ffb703;
+}
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+h1,h2{
+    font-family: var(--font-title);
+}
+p{
+    font-family: var(--font-text);
+}
