@@ -7,7 +7,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
     <header>
-        <h1>Brag</h1>
+       <!--<h1>Brag</h1>
         <nav>
             <RouterLink class="btn btn-danger" to="/">
                 Home
@@ -15,7 +15,7 @@ import { RouterLink, RouterView } from 'vue-router'
             <RouterLink class="btn btn-success" to="/dashboard">
                 Dashboard
             </RouterLink>
-        </nav>
+        </nav>--> 
     </header>
     <main>
         <RouterView />

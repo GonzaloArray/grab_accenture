@@ -1,10 +1,10 @@
 <script setup>
-
+import FooterApp from '../components/FooterApp.vue'
 </script>
 
 <template>
 
-    <h2>Home view</h2>
+<FooterApp />
 
 </template>
 
