@@ -19,3 +19,8 @@ h1,h2{
 p{
     font-family: var(--font-text);
 }
+
+/* Clases */
+.fs-7{
+    font-size: 14px;
+}

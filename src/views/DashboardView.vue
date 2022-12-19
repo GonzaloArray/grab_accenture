@@ -1,59 +1,42 @@
 <script setup>
+import { ref } from '@vue/reactivity';
+
+
+import { useBackground } from '../store/useBackground';
+import { useConfetti } from '../store/useConfetti';
+import { useBoard } from '../store/useBoard';
+
 import Todo from '../components/Todo.vue';
 import ButtonPremiun from '../components/Premiun/ButtonPremiun.vue'
-
-
-import confetti from "canvas-confetti";
 import BrackgroundEffect from '../components/Background/BrackgroundEffect.vue';
-import { ref } from '@vue/reactivity';
-import { useBackground } from '../store/useBackground';
+import Board from '../components/DashBoard/Board.vue';
+import SendBoard from '../components/DashBoard/SendBoard.vue';
 
 
 const backColor = useBackground();
+const confeti = useConfetti();
+const board = useBoard();
 
-
-function handleConfetti() {
-    var end = Date.now() + (2 * 1000);
-
-    // go Buckeyes!
-    var colors = ['#71A5D3', '#ffffff'];
-
-    (function frame() {
-        confetti({
-            particleCount: 2,
-            angle: 60,
-            spread: 55,
-            origin: { x: 0 },
-            colors: colors
-        });
-        confetti({
-            particleCount: 2,
-            angle: 120,
-            spread: 55,
-            origin: { x: 1 },
-            colors: colors
-        });
-
-        if (Date.now() < end) {
-            requestAnimationFrame(frame);
-        }
-    }());
-}
 
 
 </script>
 
 <template>
-    <section :style="'background-color:'+ backColor?.back?.color ">
-        <Todo />
+    <section :style="'background-color:'+ backColor?.back?.color" class="px-2">
+        <button v-if="board.button == false" @click.prevent="board.button = true" type="button" class="w-100 my-2 btn  rounded-1 fs-6 bg__secundario text-light">Create Board</button>
+        <SendBoard v-else />
+        
+        <Board />
+
         <div class="d-flex m-2">
-            <ButtonPremiun @click="handleConfetti" href="" icon="workspace_premium" text="Try Premium for free"/>
-    
+            <ButtonPremiun @click="confeti.handleConfetti" href="" icon="workspace_premium" text="Try Premium for free"/>
         </div>
         <BrackgroundEffect />
     </section>
 </template>
 
 <style scoped>
-
+.bg__secundario{
+    background-color: #023047!important;
+}
 </style>
