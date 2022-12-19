@@ -1,11 +1,12 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-
+import HeaderApp from './components/HeaderApp.vue';
 
 
 </script>
 
 <template>
+    <HeaderApp/>
     <header>
         <h1>Brag</h1>
         <nav>
@@ -15,12 +16,15 @@ import { RouterLink, RouterView } from 'vue-router'
             <RouterLink class="btn btn-success" to="/dashboard">
                 Dashboard
             </RouterLink>
+            <RouterLink class="btn btn-warning" to="/landing">
+                Landing
+            </RouterLink>
         </nav>
     </header>
     <main>
         <RouterView />
     </main>
-
+    <FooterApp/>
 </template>
 
 <style scoped>
