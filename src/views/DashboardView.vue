@@ -1,7 +1,5 @@
 <script setup>
 import { ref } from '@vue/reactivity';
-
-
 import { useBackground } from '../store/useBackground';
 import { useConfetti } from '../store/useConfetti';
 import { useBoard } from '../store/useBoard';
@@ -12,12 +10,9 @@ import BrackgroundEffect from '../components/Background/BrackgroundEffect.vue';
 import Board from '../components/DashBoard/Board.vue';
 import SendBoard from '../components/DashBoard/SendBoard.vue';
 
-
 const backColor = useBackground();
 const confeti = useConfetti();
 const board = useBoard();
-
-
 
 </script>
 

@@ -1,13 +1,14 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-
+import HeaderApp from './components/HeaderApp.vue';
 
 
 </script>
 
 <template>
+    <HeaderApp/>
     <header>
-       <!--<h1>Brag</h1>
+        <h1>Brag</h1>
         <nav>
             <RouterLink class="btn btn-danger" to="/">
                 Home
@@ -15,12 +16,15 @@ import { RouterLink, RouterView } from 'vue-router'
             <RouterLink class="btn btn-success" to="/dashboard">
                 Dashboard
             </RouterLink>
-        </nav>--> 
+            <RouterLink class="btn btn-warning" to="/landing">
+                Landing
+            </RouterLink>
+        </nav>
     </header>
     <main>
         <RouterView />
     </main>
-
+    <FooterApp/>
 </template>
 
 <style scoped>

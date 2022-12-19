@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "bootstrap": "^5.2.3",
     "canvas-confetti": "^1.6.0",
     "bootstrap-icons": "^1.10.2",
