@@ -64,9 +64,9 @@ function createNewBoard() {
 
         <div class="boards-container container">
             <div class="boards">
-                <div class="board rounded-1 py-4 px-3" @drop="onDrop($event, board)" @dragover.prevent @dragenter.prevent
+                <div class="board rounded-1 pb-4 px-3" @drop="onDrop($event, board)" @dragover.prevent @dragenter.prevent
                     v-for="board in boards" :key="board.id">
-                    <h2 class="fs-6 fw-bold">{{ board.name }}</h2>
+                    <h2 class="fs-per fw-bold color mt-1 mb-2">{{ board.name }}</h2>
                     <div class="input">
                         <InputNew @on-new-item="(text) => handleNewItem(text, board)" />
                     </div>
@@ -81,8 +81,14 @@ function createNewBoard() {
 </template>
 
 <style scoped>
+.fs-per{
+    font-size: 15px;
+}
+.color{
+    color: #172B4D;
+}
 .drop-zone {
-    background-color: #eee;
+    background-color: #EBECF0;
     margin-bottom: 10px;
     padding: 10px;
 }
