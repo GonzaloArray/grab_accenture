@@ -1,29 +1,37 @@
 <script setup>
-import { useBoard } from "../../store/useBoard";
+import { computed, onMounted } from '@vue/runtime-core';
+import { useReadBoard } from '../../store/useReadBoard';
+import TableBoard from './TableBoard.vue';
 
-const board = useBoard();
+
+const read = useReadBoard();
+
+
+
+
 </script>
 
 <template>
 
-<div v-if="board.arrayBoard.length == 0">
-    <h2 class="mt-3 fs-5">No empty project...</h2>
-</div>
-<section v-else>
-    <div class="bg__primario rounded-1 p-2 text-light d-flex justify-content-between align-items-center my-2" v-for=" board in board.arrayBoard" :key="board.id">
-        <h2 class="m-0 fs-5">{{ board.name }}</h2>
-        <button type="button" class="btn btn-sm btn-success">View</button>
-        {{ board }}
+    <div v-if="read.arrayProyect.length == 0">
+        <h2 class="mt-3 fs-5">No empty project...</h2>
     </div>
-</section>
-
+    <section v-else>
+        <div v-for=" board in read.arrayProyect" :key="board.id">
+            <div class="p-2 d-flex justify-content-between align-items-center my-2 border__space">
+                <h2 class="m-0 fs-6">{{ board.title }}</h2>
+                <span class="material-icons-outlined">
+                    more_horiz
+                </span>
+            </div>
+            <TableBoard :propId="board.id"/>
+        </div>
+    </section>
 
 </template>
 
 <style scoped>
-
-.bg__primario{
-    background-color: #219ebc
-;
+.border__space {
+    border-bottom: 1px solid #023047;
 }
 </style>
