@@ -1,5 +1,5 @@
 <script setup>
-import { logOut } from '../firebase/auth.js';
+
 </script>
 <template>
     <!-- <button @click="logOut">Salir</button> -->
