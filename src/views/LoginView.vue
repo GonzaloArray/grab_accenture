@@ -1,6 +1,8 @@
 <script setup>
 import { RouterLink } from 'vue-router';
-import { register, login, loginGoogle, loginFacebook, loginGitHub } from '../firebase/auth.js'
+import { loginGoogle } from '../utils/authFunction';
+
+
 </script>
 <template>
     <div class="container-fluid d-flex">
@@ -13,7 +15,7 @@ import { register, login, loginGoogle, loginFacebook, loginGitHub } from '../fir
                 <img src="../assets/Images/letraGrab.png" alt="Letras de GRAB">
             </div>
             <form class="d-flex flex-column justify-content-center align-items-center bg-white rounded-2 form-principal mb-3">
-                <h4 >Log in to GRAB</h4>
+                <h4> Log in to GRAB</h4>
                 <form class="d-flex flex-column justify-content-center align-items-center">
                     <div class="form-floating mb-3">
                         <input type="email" class="form-control" id="emailAddress" requiered>
@@ -26,9 +28,8 @@ import { register, login, loginGoogle, loginFacebook, loginGitHub } from '../fir
                     <button class="btn btn-success">Continue</button>
                 </form>
                 <span class="mb-3">OR</span>
-                <button class="btn mb-2 d-flex align-items-center" @click="loginGoogle"><img
-                        src="../assets/Images/logoGoogle.svg" alt="Logo de Google" class="me-1">Continue with
-                    Google</button>
+                <button @click.prevent="loginGoogle">google</button>
+                <!-- <butto class="btn mb-2 d-flex align-items-center"><img src="../assets/Images/logoGoogle.svg" alt="Logo de Google" class="me-1" />Continue with Google</button> -->
                 <button class="btn mb-2 d-flex align-items-center"><img src="../assets/Images/logoFacebook.svg"
                         alt="Logo de Facebook" class="me-1">Continue with Facebook</button>
                 <button class="btn mb-2 d-flex align-items-center"><img src="../assets/Images/logoGitHub.svg"

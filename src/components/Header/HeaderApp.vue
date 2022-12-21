@@ -1,6 +1,6 @@
 <script setup>
 import { RouterLink } from 'vue-router';
-import { logOut } from '../../firebase/auth.js';
+
 
 
 </script>
