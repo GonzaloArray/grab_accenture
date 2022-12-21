@@ -88,7 +88,13 @@ form input {
 
 button {
     border: 1px solid rgba(68, 67, 67, 0.484);
-    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.7);
+    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.1);
+    width: 70%;
+    display: flex;
+    justify-content: center;
+}
+button:hover{
+    border: 1px solid green;
 }
 
 .separador {
