@@ -2,7 +2,7 @@
 import { RouterLink } from 'vue-router';
 </script>
 <template>
-    <div class="container-fluid d-flex">
+    <div class="container-fluid d-flex contenedor-principal">
         <div class="imagenes-login">
             <img src="../assets/Images/imgLogin1.png" alt="" class="imglogin1 ">
         </div>
@@ -36,7 +36,7 @@ import { RouterLink } from 'vue-router';
                 <button class="btn mb-2 d-flex align-items-center"><img src="../assets/Images/logoGitHub.svg"
                         alt="Logo de GitHub" class="me-1">Continue with GitHub</button>
                 <div class="separador"></div>
-                <p>Already have an account?</p>
+                <p class="mb-0">Already have an account?</p>
                 <RouterLink to="/login">
                     Log in
                 </RouterLink>
@@ -48,6 +48,9 @@ import { RouterLink } from 'vue-router';
     </div>
 </template> 
 <style scoped>
+.contenedor-principal{
+    height: 100vh;
+}
 .imagenes {
     margin: 1rem 0;
     gap: 1rem;
@@ -99,8 +102,11 @@ button:hover{
     border: 1px solid green;
 }
 .separador {
-    border: 1px solid rgba(132, 132, 132, 0.467);
+    border: .5px solid rgba(132, 132, 132, 0.467);
     width: 100%;
     margin: 1rem 0;
+}
+a{
+    text-decoration: none;
 }
 </style>
