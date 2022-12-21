@@ -55,6 +55,7 @@ import { RouterLink } from 'vue-router';
     
 </template>
 <style scoped>
+
 .navbar {
     background-color: #023047;
     padding: 0 0;
