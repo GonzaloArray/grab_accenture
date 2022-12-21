@@ -6,7 +6,6 @@ import { db } from "../firebase";
 
 export const useBoard = defineStore('board', () => {
 
-    const spaceCollection = collection(db, 'space')
     const boardCollection = collection(db, 'board')
 
 
@@ -15,9 +14,7 @@ export const useBoard = defineStore('board', () => {
     const name = ref('');
     const spaceName = ref('');
     const visibilityName = ref('');
-    
-    const arrayBoard = ref([]);
-    
+        
     const arraySelect = ref([
         { value: "private", name: 'Private', id: crypto.randomUUID },
         { value: "worspace", name: 'Worspace', id: crypto.randomUUID },
@@ -25,16 +22,12 @@ export const useBoard = defineStore('board', () => {
     ]);
     
     const handleSubmit = (param, space, visi) => {
-        const idSpace = ref(crypto.randomUUID());
-
-        addDoc(spaceCollection, {
-            title: space,
-            id: idSpace.value,
-        });
+        console.log(space)
         addDoc(boardCollection, {
             name: param,
             status: visi,
-            id: idSpace.value,
+            id: space,
+            idBoard: crypto.randomUUID(),
             date: Date.now(),
         });
 
@@ -43,10 +36,9 @@ export const useBoard = defineStore('board', () => {
         visibilityName.value = '';
 
         button.value = false;
-
     }
 
     return {
-        button, arrayBoard, name, spaceName, visibilityName, arraySelect, handleSubmit
+        button, name, spaceName, visibilityName, arraySelect, handleSubmit
     }
 })
