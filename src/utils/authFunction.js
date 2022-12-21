@@ -1,3 +1,4 @@
+import { auth, db } from "./firebase";
 import {
     createUserWithEmailAndPassword,
     FacebookAuthProvider,
@@ -10,9 +11,8 @@ import {
 } from "firebase/auth";
 
 import { useUserStore } from "../store/user";
-import { addDoc, collection } from "firebase/firestore";
-import { auth, db } from ".";
 import router from "../router";
+import { addDoc, collection } from "firebase/firestore";
 
 const store = useUserStore();
 
@@ -72,6 +72,7 @@ function loginGoogle() {
 
     signInWithPopup(auth, googleProvider)
         .then(result => {
+            console.log(result.user)
             store.addUsuario(result.user);
 
         })

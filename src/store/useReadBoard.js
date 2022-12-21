@@ -1,7 +1,7 @@
 import { collection, onSnapshot, orderBy, query, where } from "@firebase/firestore";
 import { defineStore } from "pinia"
 import { onMounted, ref } from "vue";
-import { db } from "../firebase";
+import { db } from "../utils/firebase";
 
 
 export const useReadBoard = defineStore('ReadBoard', () => {
