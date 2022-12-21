@@ -7,12 +7,11 @@ import { RouterLink } from 'vue-router';
             <img src="../assets/Images/imgLogin1.png" alt="" class="imglogin1 ">
         </div>
         <div class="container d-flex justify-content-center align-items-center flex-column">
-            <div class="d-flex justify-content-center align-items-center imagenes rounded-2">
+            <form class="d-flex flex-column justify-content-center align-items-center bg-white rounded-2 mb-3 form-principal">
+                <div class="d-flex justify-content-center align-items-center imagenes rounded-2">
                 <img src="../assets/Images/logoGrab.png" alt="Logo de GRAB">
                 <img src="../assets/Images/letraGrab.png" alt="Letras de GRAB">
-            </div>
-            <form class="d-flex flex-column justify-content-center align-items-center bg-white rounded-2 mb-3 form-principal">
-                <h4>Create your account</h4>
+                </div>
                 <form class="d-flex flex-column justify-content-center align-items-center">
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" id="username" required>
@@ -49,10 +48,10 @@ import { RouterLink } from 'vue-router';
 </template> 
 <style scoped>
 .contenedor-principal{
-    height: 100vh;
+    height: 90vh;
+    background-color: #023047;
 }
 .imagenes {
-    margin: 1rem 0;
     gap: 1rem;
     background-color: rgba(0, 0, 0, 0.299);
     padding:.5rem 1rem ;
@@ -69,12 +68,12 @@ import { RouterLink } from 'vue-router';
 }
 .imagenes img:nth-child(1) {
     height: 4rem;
-    filter: drop-shadow(0px 0px 10px #000);
+    filter: drop-shadow(0px 0px 2px #000) brightness(110%);
 }
 
 .imagenes img:nth-child(2) {
     height: 2rem;
-    filter: drop-shadow(0px 0px 10px #000);
+    filter: drop-shadow(0px 0px 2px #000) brightness(110%);
 }
 
 form {

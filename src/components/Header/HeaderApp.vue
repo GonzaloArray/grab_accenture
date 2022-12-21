@@ -1,91 +1,99 @@
 <script setup>
 import { RouterLink } from 'vue-router';
+import { useUserStore } from "../../store/user.js";
+import { getAuth, signOut } from '@firebase/auth';
 
+const user=useUserStore()
+console.log(user.existeUsuario);
+
+function signout() {
+    const auth = getAuth();
+    signOut(auth).then(() => {
+        alert("deslogueado")
+    }).catch((error) => {
+
+    });
+}
 
 
 </script>
 <template>
-    <nav class="navbar">
-        <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
-            aria-controls="offcanvasScrolling">
-            <img src="../../assets/Images/logoGrab.png" alt="Logo de GRAB">
-        </button>
-        <img src="../../assets/Images/letraGrab.png" alt="Letra de GRAB">
-        <button >Salir</button>
+    <nav class="navbar d-flex justify-content-between shadow">
+        <div class="d-flex align-items-center gap-3">
+            <RouterLink to="/landing" class="me-3">
+                <img src="../../assets/Images/letraGrab.png" alt="Letra de GRAB">
+            </RouterLink>
+            <RouterLink class="btn btn-primary" to="/">
+                Home
+            </RouterLink>
+            <RouterLink class="btn btn-warning" to="/dashboard">
+                Dashboard
+            </RouterLink>
+        </div>
+        <div class="contenedor-botones d-flex justify-content-between align-items-center">
+            <RouterLink to="/login">
+                <button class="btn bg-white" v-if="!user.existeUsuario">
+                    Log In GRAB
+                </button>
+            </RouterLink>
+            <button class="btn btn-danger" v-if="user.existeUsuario" @click="signout()">
+                Log Out
+            </button>
+            <button class="btn btn-premium rounded-0">
+                <img src="../../assets/Images/logoGrab.png" alt="">
+                <span>PREMIUM</span>
+            </button>
+        </div>
     </nav>
-
-
-    <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
-        id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-        <div class="offcanvas-header">
-            <img src="../../assets/Images/letraGrab.png" alt="">
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-                aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <ul>
-                <li class="d-flex align-content-center justify-content-center">
-                    <span class="material-icons-outlined pe-2">
-                        view_list
-                    </span>
-                    Tablero
-                </li>
-                <li class="d-flex align-content-center justify-content-center">
-                    <span class="material-icons-outlined pe-2">
-                        view_list
-                    </span>
-                    Tablero
-                </li>
-                <li class="d-flex align-content-center justify-content-center">
-                    <span class="material-icons-outlined pe-2">
-                        view_list
-                    </span>
-                    Tablero
-                </li>
-                <li class="d-flex align-content-center justify-content-center">
-                    <span class="material-icons-outlined pe-2">
-                        view_list
-                    </span>
-                    Tablero
-                </li>
-                <li class="d-flex align-content-center justify-content-center">
-                    <span class="material-icons-outlined pe-2">
-                        view_list
-                    </span>
-                    Tablero
-                </li>
-            </ul>
-        </div>
-    </div>
 
 </template>
 <style scoped>
-
 .navbar {
+    width: 100%;
     background-color: #023047;
     padding: 0 0;
     max-height: 3rem;
-}
-
-.navbar {
     display: flex;
     justify-content: flex-start;
-    align-items: centers;
-
+    align-items: center;
+    min-height: 10vh;
+}
+.contenedor-botones{
+    width: 22rem;
+    height: 10vh;
 }
 
 .navbar img:nth-child(1) {
-    height: 2rem;
-}
-
-.navbar img:nth-child(2) {
     height: 1rem;
-    /* padding-left: 1rem; */
+    padding-left: 1rem;
 }
 
+
+.btn-premium {
+    background-color: var(--thrid);
+    color: white;
+    font-family: var(--font-title);
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 1px black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* padding: .5rem;
+    transform: scale(1.1) translateY(.5rem); */
+    width: 12rem;
+    min-height: 100%;
+}
+.btn-premium:hover{
+    box-shadow: 0px 0px 5px 0px rgba(235,225,27,0.67)
+}
+.btn-premium>img{
+    height: 2rem !important;
+    padding-left: 0px !important;
+    filter: drop-shadow(1px 1px 1px #000);
+}
 .offcanvas {
     max-width: 15rem;
-
 }
 
 .offcanvas-header {
