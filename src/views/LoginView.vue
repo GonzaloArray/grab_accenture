@@ -75,7 +75,7 @@ import { register, login, loginGoogle, loginFacebook, loginGitHub } from '../fir
 form {
     min-width: 20rem;
     width: 25rem;
-    padding: 2rem;
+    padding:.5rem 2rem;
 }
 .form-principal{
     box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.75);

@@ -11,7 +11,7 @@ import { RouterLink } from 'vue-router';
                 <img src="../assets/Images/logoGrab.png" alt="Logo de GRAB">
                 <img src="../assets/Images/letraGrab.png" alt="Letras de GRAB">
             </div>
-            <form class="d-flex flex-column justify-content-center align-items-center bg-white rounded-2 mb-3">
+            <form class="d-flex flex-column justify-content-center align-items-center bg-white rounded-2 mb-3 form-principal">
                 <h4>Create your account</h4>
                 <form class="d-flex flex-column justify-content-center align-items-center">
                     <div class="form-floating mb-3">
