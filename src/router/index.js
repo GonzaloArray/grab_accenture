@@ -27,6 +27,32 @@ const router = createRouter({
       component: () => import('../views/LandingView.vue')
     },
     {
+      path:'/work',
+      name:'work',
+      component: () => import('../views/WorksView.vue')
+    },
+    {
+      path:'/about',
+      name:'about',
+      component: () => import('../views/AboutView.vue')
+    },
+    {
+      path:'/contact',
+      name:'contact',
+      component: () => import('../views/ContactView.vue')
+    },
+    {
+      path:'/politic',
+      name:'politic',
+      component: () => import('../views/PoliticView.vue')
+    },
+    {
+      path:'/terms',
+      name:'terms',
+      component: () => import('../views/TermsView.vue')
+    },
+    },
+    {
       path:'/login',
       name:'login',
       component: () => import('../views/LoginView.vue')
