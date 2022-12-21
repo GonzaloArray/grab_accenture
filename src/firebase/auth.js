@@ -6,15 +6,16 @@ import {
     onAuthStateChanged,
     signInWithEmailAndPassword,
     signInWithPopup,
-    updateProfile
+    updateProfile,
+    signOut
 } from "firebase/auth";
 
-import { useUserStore } from "../store/user";
+// import { useUser } from "../store/usePinia.js";
 import { addDoc, collection } from "firebase/firestore";
 import { auth, db } from ".";
 import router from "../router";
 
-const store = useUserStore();
+// const store = useUser();
 
 function register(displayName, email, password) {
     createUserWithEmailAndPassword(auth, email, password)
@@ -73,7 +74,7 @@ function loginGoogle() {
     signInWithPopup(auth, googleProvider)
         .then(result => {
             store.addUsuario(result.user);
-
+            console.log(result.data().user)
         })
         .catch(error => console.log(error));
 }
@@ -109,10 +110,20 @@ onAuthStateChanged(auth, (user) => {
 
 });
 
+function logOut(){
+    signOut(auth).then(() => {
+        console.log('logOut');
+        user.value=null
+    }).catch((error) => {
+        console.log('logOut Error');
+    });
+}
+
 export {
     register,
     login,
     loginGoogle,
     loginFacebook,
-    loginGitHub
+    loginGitHub,
+    logOut
 }

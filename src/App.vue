@@ -1,6 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HeaderApp from './components/HeaderApp.vue';
+import HeaderApp from './components/Header/HeaderApp.vue';
 
 
 </script>
@@ -18,6 +18,9 @@ import HeaderApp from './components/HeaderApp.vue';
             </RouterLink>
             <RouterLink class="btn btn-warning" to="/landing">
                 Landing
+            </RouterLink>
+            <RouterLink class="btn btn-primary" to="/login">
+                Login
             </RouterLink>
         </nav>
     </header>

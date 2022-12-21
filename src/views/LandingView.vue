@@ -1,7 +1,8 @@
 <script setup>
-
+import { logOut } from '../firebase/auth.js';
 </script>
 <template>
+    <!-- <button @click="logOut">Salir</button> -->
     <div class="container-fluid">
         <div class="d-flex flex-wrap keep row">
         <div class="d-flex flex-column" >
