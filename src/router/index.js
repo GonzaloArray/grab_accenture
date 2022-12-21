@@ -51,7 +51,6 @@ const router = createRouter({
       name:'terms',
       component: () => import('../views/TermsView.vue')
     },
-    },
     {
       path:'/login',
       name:'login',
