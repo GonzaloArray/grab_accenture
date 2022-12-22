@@ -20,24 +20,22 @@ const updateComments = computed(() => {
 
 <template>
     {{ updateComments }}
-    <div v-for="board in commentsWithId" :key="board.id" class="d-flex justify-content-between align-items-center">
-
-        <RouterLink class="btn w-100 btn-sm py-3 my-1 btn-sm fs-7 bg__second"
-            :to="{ name: 'board', params: { id: board.idBoard } }">
-            <div class="d-flex align-items-center">
-                <p class="m-0 witdh bg-primary me-2"></p>
-                <h2 class="m-0 fs-6">{{ board.name }}</h2>
-            </div>
-        </RouterLink>
-
-    </div>
+    <section class="row">
+        <div v-for="board in commentsWithId" :key="board.id" class="col-12 col-md-2">
+    
+            <RouterLink class="btn w-100 btn-sm py-3 my-1 btn-sm fs-7 bg-primary text-light witdh"
+                :to="{ name: 'board', params: { id: board.idBoard } }">
+                    <h2 class="m-0 fs-6 text-start fw-bold">{{ board.name }}</h2>
+            </RouterLink>
+    
+        </div>
+    </section>
 
 </template>
 
 <style scoped>
 .witdh {
-    width: 20px;
-    height: 20px;
+    height: 100px;
 }
 
 .bg__second {
