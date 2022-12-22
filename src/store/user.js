@@ -1,5 +1,6 @@
 import { defineStore } from "pinia"
-import { ref } from "vue"
+import { ref,computed } from "vue"
+
 
 
 export const useUserStore = defineStore('user' , ()=> {
@@ -10,8 +11,17 @@ export const useUserStore = defineStore('user' , ()=> {
         user.value = user
     }
 
+    const existeUsuario = computed(() => {
+        if (user.value === null) {
+            return false;
+        } else {
+            return true;
+        }
+    })
+
     return{
         user,
-        addUsuario
+        addUsuario,
+        existeUsuario
     }
 })

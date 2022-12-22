@@ -2,17 +2,16 @@
 import { RouterLink } from 'vue-router';
 </script>
 <template>
-    <div class="container-fluid d-flex">
+    <div class="container-fluid d-flex contenedor-principal">
         <div class="imagenes-login">
             <img src="../assets/Images/imgLogin1.png" alt="" class="imglogin1 ">
         </div>
         <div class="container d-flex justify-content-center align-items-center flex-column">
-            <div class="d-flex justify-content-center align-items-center imagenes rounded-2">
+            <form class="d-flex flex-column justify-content-center align-items-center bg-white rounded-2 mb-3 form-principal">
+                <div class="d-flex justify-content-center align-items-center imagenes rounded-2">
                 <img src="../assets/Images/logoGrab.png" alt="Logo de GRAB">
                 <img src="../assets/Images/letraGrab.png" alt="Letras de GRAB">
-            </div>
-            <form class="d-flex flex-column justify-content-center align-items-center bg-white rounded-2 mb-3 form-principal">
-                <h4>Create your account</h4>
+                </div>
                 <form class="d-flex flex-column justify-content-center align-items-center">
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" id="username" required>
@@ -36,7 +35,7 @@ import { RouterLink } from 'vue-router';
                 <button class="btn mb-2 d-flex align-items-center"><img src="../assets/Images/logoGitHub.svg"
                         alt="Logo de GitHub" class="me-1">Continue with GitHub</button>
                 <div class="separador"></div>
-                <p>Already have an account?</p>
+                <p class="mb-0">Already have an account?</p>
                 <RouterLink to="/login">
                     Log in
                 </RouterLink>
@@ -48,8 +47,11 @@ import { RouterLink } from 'vue-router';
     </div>
 </template> 
 <style scoped>
+.contenedor-principal{
+    height: 90vh;
+    background-color: #023047;
+}
 .imagenes {
-    margin: 1rem 0;
     gap: 1rem;
     background-color: rgba(0, 0, 0, 0.299);
     padding:.5rem 1rem ;
@@ -66,12 +68,12 @@ import { RouterLink } from 'vue-router';
 }
 .imagenes img:nth-child(1) {
     height: 4rem;
-    filter: drop-shadow(0px 0px 10px #000);
+    filter: drop-shadow(0px 0px 2px #000) brightness(110%);
 }
 
 .imagenes img:nth-child(2) {
     height: 2rem;
-    filter: drop-shadow(0px 0px 10px #000);
+    filter: drop-shadow(0px 0px 2px #000) brightness(110%);
 }
 
 form {
@@ -90,12 +92,20 @@ form input {
 
 button {
     border: 1px solid rgba(68, 67, 67, 0.484);
-    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.7);
+    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.1);
+    width: 70%;
+    display: flex;
+    justify-content: center;
 }
-
+button:hover{
+    border: 1px solid green;
+}
 .separador {
-    border: 1px solid rgba(132, 132, 132, 0.467);
+    border: .5px solid rgba(132, 132, 132, 0.467);
     width: 100%;
     margin: 1rem 0;
+}
+a{
+    text-decoration: none;
 }
 </style>

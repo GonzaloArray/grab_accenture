@@ -10,7 +10,7 @@ import {
     updateProfile
 } from "firebase/auth";
 
-import { useUserStore } from "../store/user";
+import { useUserStore } from "../store/user.js";
 import router from "../router";
 import { addDoc, collection } from "firebase/firestore";
 
