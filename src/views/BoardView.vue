@@ -7,8 +7,12 @@ import Todo from '../components/Todo.vue';
 
 <template>
     <div class="overflow">
-        <Todo :style="'background-color:'+ backColor?.back?.color"/>
-        
+        <Todo />
+        <!-- 
+            colocar en el todo de arriba
+            :style="'background-color:'+ backColor?.back?.color"
+            
+         -->
     </div>
     <!-- <BrackgroundEffect /> -->
 </template>

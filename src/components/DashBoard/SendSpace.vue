@@ -1,13 +1,13 @@
 <script setup>
+import { useCreate } from '../../store/Header/CreateDash';
 import { useSendSpace } from '../../store/useSendSpace';
 
-const emits = defineEmits(['modal-false']);
 const space = useSendSpace();
+const store = useCreate();
 
+function handleClick(){
 
-function handleClick() {
-
-    emits('modal-false', false)
+    store.modal = false; 
 }
 
 </script>

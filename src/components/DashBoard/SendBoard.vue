@@ -1,18 +1,19 @@
 <script setup>
 import { ref } from '@vue/reactivity';
+import { useCreate } from '../../store/Header/CreateDash';
 import { useBoard } from '../../store/useBoard'
 import { useReadBoard } from '../../store/useReadBoard';
 
-const emits = defineEmits(['modal-false']);
+
 
 const board = useBoard();
 const read = useReadBoard();
+const storeCreate = useCreate();
 
 function handleClick(){
 
-    emits('modal-false', false)
+    storeCreate.modal = false; 
 }
-
 
 </script>
 
