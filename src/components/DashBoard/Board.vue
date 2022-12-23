@@ -1,30 +1,32 @@
 <script setup>
 import { computed, onMounted } from '@vue/runtime-core';
 import { useReadBoard } from '../../store/useReadBoard';
+import CreateBoard from './CreateBoard.vue';
 import TableBoard from './TableBoard.vue';
 
-
 const read = useReadBoard();
-
-
-
 
 </script>
 
 <template>
-
+    <div class="d-flex align-items-center ps-md-2">
+        <div class="d-flex align-items-center pe-3">
+            <span class="material-icons-outlined fs-3">
+                person
+            </span>
+            <h2 class="fs-5 m-0">Your boards</h2>
+        </div>
+        <CreateBoard />
+    </div>
     <div v-if="read.arrayProyect.length == 0">
         <h2 class="mt-3 fs-5">No empty project...</h2>
     </div>
-    <section v-else>
+    <section class="ps-0 ps-md-2" v-else>
         <div v-for=" board in read.arrayProyect" :key="board.id">
             <div class="p-2 d-flex justify-content-between align-items-center my-2 border__space">
                 <h2 class="m-0 fs-6">{{ board.title }}</h2>
-                <span class="material-icons-outlined">
-                    more_horiz
-                </span>
             </div>
-            <TableBoard :propId="board.id"/>
+            <TableBoard :propId="board.id" />
         </div>
     </section>
 
@@ -32,6 +34,6 @@ const read = useReadBoard();
 
 <style scoped>
 .border__space {
-    border-bottom: 1px solid #023047;
+    border-bottom: 1px solid #0230473d;
 }
 </style>
