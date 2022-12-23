@@ -3,14 +3,14 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 import { db } from "../../utils/firebase";
 
-export const useReadTodo = defineStore('readTodo', () => {
+export const useReadTask = defineStore('readTask', ()=> {
 
-    const arrayTodo = ref([]);
+    const arrayTask = ref([]);
 
-    const nameCollection = collection(db, 'tablero')
-    
-    
-    const readTablero = (id) => {
+    const readTask = (id) => {
+        
+        const nameCollection = collection(db, 'task')
+
         const todoCollectionQuery = query(nameCollection, where("idProyect", "==", id));
 
         onSnapshot(todoCollectionQuery, (querySnapshot) => {
@@ -19,23 +19,24 @@ export const useReadTodo = defineStore('readTodo', () => {
             querySnapshot.forEach((doc) => {
 
                 const todo = {
-                    name: doc.data().name,
+                    title: doc.data().title,
                     id: doc.data().id,
                     idProyect: doc.data().idProyect,
+                    idBoard: doc.data().idBoard,
+                    date: doc.data().date,
+                    idFire: doc.id
                 }
 
                 frPost.push(todo)
 
             });
 
-            arrayTodo.value = frPost;
+            arrayTask.value = frPost;
         });
     }
 
-
-
-    return {
-        arrayTodo,
-        readTablero
+    return{
+        arrayTask,
+        readTask
     }
 })

@@ -14,7 +14,7 @@ function handleKeyDown(evt) {
 
 <template>
   
-  <input class="form-control mb-4" v-model="text" @keydown="handleKeyDown" placeholder="Add to card" />{{ text }}
+  <input class="form-control mb-4" v-model="text" @keydown="handleKeyDown" placeholder="Add to card" />
 
 </template>
 

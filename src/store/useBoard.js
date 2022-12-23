@@ -22,7 +22,7 @@ export const useBoard = defineStore('board', () => {
     ]);
     
     const handleSubmit = (param, space, visi) => {
-        console.log(space)
+        
         addDoc(boardCollection, {
             name: param,
             status: visi,
