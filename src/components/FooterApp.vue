@@ -61,6 +61,9 @@ import { RouterLink } from 'vue-router';
 </template>
 
 <style scoped>
+a{
+  text-decoration: none;
+}
 h5{
   font-family: var(--font-title);
 }

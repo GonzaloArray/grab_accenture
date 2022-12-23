@@ -21,10 +21,7 @@ p{
     font-family: var(--font-text);
     margin: 0;
 }
-img{
-    width: 100%;
-    min-height: auto;
-}
+
 
 /* Clases */
 .fs-7{
