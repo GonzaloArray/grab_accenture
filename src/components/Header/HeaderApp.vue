@@ -2,9 +2,10 @@
 import { RouterLink } from 'vue-router';
 import { useUserStore } from "../../store/user.js";
 import { getAuth, signOut } from '@firebase/auth';
+import ButtonPremiun from '../Premiun/ButtonPremiun.vue';
+import CreateBoard from '../DashBoard/CreateBoard.vue';
 
-const user = useUserStore()
-console.log(user.existeUsuario);
+const user  =  useUserStore()
 
 function signout() {
     const auth = getAuth();
@@ -18,6 +19,9 @@ function signout() {
 
 </script>
 <template>
+    <nav class="navbar d-flex justify-content-between shadow px-3">
+        <div class="d-flex align-items-center gap-3 text-light fs-7">
+            <RouterLink to="/landing" class="me-5 mt-0">
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Navbar</a>
@@ -64,30 +68,62 @@ function signout() {
             <RouterLink to="/landing" class="me-3">
                 <img src="../../assets/Images/letraGrab.png" alt="Letra de GRAB">
             </RouterLink>
-            <RouterLink class="btn btn-primary" to="/">
+            <RouterLink class="nav-link fw-bold" to="/">
                 Home
             </RouterLink>
-            <RouterLink class="btn btn-warning" to="/dashboard">
+            <RouterLink class="nav-link fw-bold" to="/dashboard">
                 Dashboard
             </RouterLink>
+            <RouterLink class="nav-link fw-bold" to="/contact">
+                Contact
+            </RouterLink>
+            <CreateBoard />
         </div>
-        <div class="contenedor-botones d-flex justify-content-between align-items-center">
-            <RouterLink to="/login">
-                <button class="btn bg-white" v-if="!user.existeUsuario">
-                    Log In GRAB
-                </button>
+        <div class=" d-flex align-items-center">
+            <RouterLink to="/login" class="nav-link text-light fw-bold fs-7 me-4 bg-dark px-5 py-2 rounded-2 hover"
+                v-if="!user.existeUsuario">
+                <div class="d-flex align-items-center">
+                    <span class="material-icons-outlined me-2">
+                        login
+                    </span>
+                    <p class="m-0">Login</p>
+                </div>
             </RouterLink>
             <button class="btn btn-danger" v-if="user.existeUsuario" @click="signout()">
                 Log Out
             </button>
-            <button class="btn btn-premium rounded-0">
+            <ButtonPremiun href="" icon="dashboard" text="Grab premiun" />
+            <!-- <button class="btn btn-premium rounded-0">
                 <img src="../../assets/Images/logoGrab.png" alt="">
                 <span>PREMIUM</span>
-            </button>
+            </button> -->
         </div>
     </nav> -->
 </template>
 <style scoped>
+a:hover {
+    color: #ffb703;
+}
+
+.router-link-active {
+    color: #ffb703;
+}
+.hover p{
+    transform: translateX(-.8rem);
+}
+.hover span{
+    opacity: 0;
+    transition: .2s;
+}
+.hover:hover span {
+    opacity: 1;
+    transition: .4s;
+    transform: translateX(-1rem);
+}
+.hover:hover {
+    background-color: #ffb703 !important;
+}
+
 .navbar {
     width: 100%;
     background-color: #023047;
@@ -127,17 +163,14 @@ function signout() {
     width: 12rem;
     min-height: 100%;
 }
-
-.btn-premium:hover {
-    box-shadow: 0px 0px 5px 0px rgba(235, 225, 27, 0.67)
+.btn-premium:hover{
+    box-shadow: 0px 0px 5px 0px rgba(235,225,27,0.67)
 }
-
-.btn-premium>img {
+.btn-premium>img{
     height: 2rem !important;
     padding-left: 0px !important;
     filter: drop-shadow(1px 1px 1px #000);
 }
-
 .offcanvas {
     max-width: 15rem;
 }
