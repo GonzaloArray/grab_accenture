@@ -3,7 +3,7 @@
     --font-text: 'Roboto', sans-serif;
 
     --primary:#023047;
-    --second: #fb8500;
+    --second: #fa8500;
     --thrid:#ffb703;
 }
 *{
@@ -15,9 +15,11 @@ body{
 }
 h1,h2{
     font-family: var(--font-title);
+    margin: 0;
 }
 p{
     font-family: var(--font-text);
+    margin: 0;
 }
 
 /* Clases */

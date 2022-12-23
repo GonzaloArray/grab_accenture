@@ -5,28 +5,16 @@ import Board from '../components/DashBoard/Board.vue';
 import CreateBoard from '../components/DashBoard/CreateBoard.vue';
 import SendBoard from '../components/DashBoard/SendBoard.vue';
 import SendSpace from '../components/DashBoard/SendSpace.vue';
+import { useCreate } from '../store/Header/CreateDash';
 
-const create = ref(null)
-const modal = ref(false);
-
-
-function handleBoard(valor){    
-    create.value = valor;
-
-    modal.value = true;
-}
-function handleModal(boolean){
-    modal.value = boolean;
-}
+const store = useCreate()
 
 </script>
 
 <template>
-    <section class="px-2">
-        <CreateBoard @board="handleBoard"/>
-        {{ create?.title }}
-        <SendBoard @modal-false="handleModal" v-if="create?.title == 'Create board' && modal"/>    
-        <SendSpace @modal-false="handleModal" v-if="create?.title == 'Create space' && modal"/>    
+    <section class="px-2 pt-4">
+        <SendBoard v-if="store?.create?.title == 'Create board' && store.modal"/>    
+        <SendSpace v-if="store?.create?.title == 'Create space' && store.modal"/>    
 
         <Board />
 

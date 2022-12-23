@@ -49,7 +49,7 @@ import { loginGoogle } from '../utils/authFunction';
 </template> 
 <style scoped>
 .contenedor-principal {
-    height: 90vh;
+    height: 92vh;
     background-color: #023047;
 }
 

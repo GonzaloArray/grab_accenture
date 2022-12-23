@@ -6,7 +6,9 @@ import HeaderApp from './components/Header/HeaderApp.vue';
 </script>
 
 <template>
-    <HeaderApp/>
+    <header>
+        <HeaderApp/>
+    </header>
     <main>
         <RouterView />
     </main>
