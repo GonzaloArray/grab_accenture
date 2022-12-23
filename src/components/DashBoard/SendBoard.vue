@@ -20,17 +20,19 @@ function handleClick(){
     <form class="position-absolute end-0 top-0 mt-5 bottom-0 start-0 container w-25"
         @submit.prevent="board.handleSubmit(board.name, board.spaceName, board.visibilityName)" method="POST">
         <section class="bg-light rounded-2 container m-2 p-4 shadow">
-            <button @click.prevent="handleClick" class="btn btn-danger btn-sm rounded-pill">
-                <div class="d-flex align-items-center">
-                    <span class="material-icons-outlined me-1 fs-7">
-                        close
-                    </span>
-                    <p class="m-0 pe-2 fs-7">close</p>
-                </div>
-            </button>
+            <div class="d-flex justify-content-between align-items-center pb-2 border-bottom ">
+                <h2 class="fs-6">Create board</h2>
+                <button @click.prevent="handleClick" class="btn btn-danger btn-sm rounded-pill">
+                    <div class="d-flex align-items-center">
+                        <span class="material-icons-outlined fs-7">
+                            close
+                        </span>
+                    </div>
+                </button>
+            </div>
             <div class="mt-3">
-                <label class="fs-7" for="">Board name</label>
-                <input type="text" class="form-control input__border bg-light rounded-0" v-model="board.name"
+                <label class="fs-7" for="board">Board name</label>
+                <input type="text" name="board" id="board" class="form-control input__border bg-light rounded-0" v-model="board.name"
                     placeholder="Ej: Brag Proyect">
             </div>
             <div class="my-3">

@@ -10,7 +10,7 @@ import Todo from '../components/Todo.vue';
         <Todo :style="'background-color:'+ backColor?.back?.color"/>
         
     </div>
-    <BrackgroundEffect />
+    <!-- <BrackgroundEffect /> -->
 </template>
 
 <style scoped>
