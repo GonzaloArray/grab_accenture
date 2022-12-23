@@ -1,24 +1,28 @@
 <script setup>
-import { ref } from '@vue/reactivity';
-
+import Sidebar from '../components/Sidebar/Sidebar.vue';
 import Board from '../components/DashBoard/Board.vue';
-import CreateBoard from '../components/DashBoard/CreateBoard.vue';
 import SendBoard from '../components/DashBoard/SendBoard.vue';
 import SendSpace from '../components/DashBoard/SendSpace.vue';
 import { useCreate } from '../store/Header/CreateDash';
+import { useSidebar } from '../store/Sidebar/useSidebar';
 
-const store = useCreate()
+const store = useCreate();
+const sidebar = useSidebar();
+
 
 </script>
 
 <template>
-    <section class="px-2 pt-4">
-        <SendBoard v-if="store?.create?.title == 'Create board' && store.modal"/>    
-        <SendSpace v-if="store?.create?.title == 'Create space' && store.modal"/>    
-
-        <Board />
-
-    </section>
+    <div class="d-flex">
+        <Sidebar />
+        <section class="px-2 pt-4 toggle" :class="sidebar.modal == true && 'toggle-modal'">
+            <SendBoard v-if="store?.create?.title == 'Create board' && store.modal"/>    
+            <SendSpace v-if="store?.create?.title == 'Create space' && store.modal"/>    
+    
+            <Board />
+    
+        </section>
+    </div>
 </template>
 
 <style scoped>
@@ -27,5 +31,11 @@ const store = useCreate()
 }
 .bg__general{
     background-color: #c4c4c4;
+}
+.toggle{
+    margin-left: 300px;
+}
+.toggle-modal{
+    margin-left: 40px;
 }
 </style>

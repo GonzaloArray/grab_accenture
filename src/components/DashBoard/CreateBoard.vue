@@ -25,7 +25,7 @@ function handleClick(id) {
 
 <template>
     <div class="dropdown">
-        <button class="btn btn-secondary rounded-1 shadow dropdown-toggle fs-7 fw-bold" type="button"
+        <button class="btn btn-secondary rounded-1 shadow dropdown-toggle fs-7 fw-bold px-5" type="button"
             id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
             Create
         </button>

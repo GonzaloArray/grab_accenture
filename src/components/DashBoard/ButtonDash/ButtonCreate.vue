@@ -22,4 +22,5 @@ const props = defineProps({
 .c__primario{
     color: #023047;
 }
+
 </style>
