@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
 import { addDoc, collection } from 'firebase/firestore'
-import { db } from "../firebase";
+import { db } from "../utils/firebase";
 
 
 export const useBoard = defineStore('board', () => {
