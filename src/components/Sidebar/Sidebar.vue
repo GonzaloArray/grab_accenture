@@ -3,8 +3,10 @@ import { ref } from '@vue/reactivity';
 import ButtomLink from './Buttom/ButtomLink.vue';
 import { useSidebar } from '../../store/Sidebar/useSidebar'
 import ButtonPremiun from '../Premiun/ButtonPremiun.vue';
+import { useConfetti } from '../../store/useConfetti'
 
 const sidebar = useSidebar();
+const confetti = useConfetti();
 
 function handleModal() {
 
@@ -44,7 +46,7 @@ function handleModal() {
         </ul>
 
         <div class="d-flex align-items-center position-absolute bottom-0 mb-3">
-            <ButtonPremiun icon="dashboard" href="" text="Grab Premiun"/>
+            <ButtonPremiun @click.prevent="confetti.handleConfetti" icon="workspace_premium" href="" text="Grab Premiun"/>
 
         </div>
     </aside>

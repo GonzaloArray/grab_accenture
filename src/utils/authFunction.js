@@ -13,7 +13,7 @@ import {
 import { useUserStore } from "../store/user.js";
 import router from "../router";
 import { addDoc, collection, onSnapshot, query, where } from "firebase/firestore";
-import { ref } from "vue";
+
 
 const store = useUserStore();
 
