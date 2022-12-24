@@ -1,4 +1,6 @@
 <script setup>
+import { RouterLink } from "vue-router";
+
 
 
 </script>
@@ -8,7 +10,7 @@
     <div class="modal fade" id="premium" tabindex="-1" aria-labelledby="exampleModalpremium" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-body py-5">
+                <div class="modal-body py-4">
                     <img src="../../../assets/Images/confetti.svg" alt="Confetti">
                     <div>
                         <h2 class="fs-4 text-center mt-3">Try GRAB Premium subscription free for 14 days</h2>
@@ -20,7 +22,10 @@
                             <li>unlimited automations</li>
                             <li>And much more.</li>
                         </ul>
-
+                        <button class="btn btn-sm btn-primary w-100 my-3">
+                            Start free trial
+                        </button>
+                        <RouterLink class="d-flex justify-content-center" to="politic">Learn more about the features of Trello plans</RouterLink>                        
                     </div>
                 </div>
 <!--                 <div class="modal-footer">
