@@ -1,9 +1,13 @@
 <script setup>
 import { ref } from "@vue/reactivity";
 import { computed } from "@vue/runtime-core";
+import { useDeleteTask } from "../../../store/Dashboard/CRUD/useDeleteTask";
+import { useModal } from "../../../store/Dashboard/useModalTask";
 import { useReadTask } from "../../../store/Dashboard/useReadTask";
 
 const readTask = useReadTask();
+const modalTask = useModal();
+const deleteTask = useDeleteTask();
 
 const props = defineProps({
     idTablero: String,
@@ -43,17 +47,33 @@ const updateTask = computed(() => {
 <template>
     {{ updateTask }}
     <ul class="list-items">
-        <li class="rounded-2 p-2 mt-2 item drag-el" draggable="true"
-            @dragstart="handleDragStart($event, idTablero, item.id);"
-            @dragend="handleDragEnd($event, idTablero, item.id);" 
-            @dragenter="handleDragEnter($event, idTablero, item.id)"
-            v-for="item in taskWithId" :key="item.id">
-            {{ item.title }}
+        <li @click.prevent="modalTask.handleModal(item)" class="rounded-2 p-0 mt-2 item drag-el position-relative"
+            draggable="true" @dragstart="handleDragStart($event, idTablero, item.id);"
+            @dragend="handleDragEnd($event, idTablero, item.id);"
+            @dragenter="handleDragEnter($event, idTablero, item.id)" v-for="item in taskWithId" :key="item.id">
+            <div class="d-flex align-items-center hover">
+                <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="nav-link p-2 w-100 text-start">
+                    <p>{{ item.title }}</p>
+                </a>
+                <a class="nav-link mt-1 p-1" @click.prevent="deleteTask.handleDelete(item.idFire)">
+                    <span class="material-icons-outlined fs-6">
+                        close
+                    </span>
+                </a>
+            </div>
         </li>
     </ul>
 </template>
 
 <style scoped>
+.hover span{
+    opacity: 0;
+}
+.hover:hover span{
+    opacity: 1;
+    transition: .3s;
+}
+
 .list-items {
     flex: 1;
     display: flex;

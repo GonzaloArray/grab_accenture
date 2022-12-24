@@ -8,6 +8,7 @@ import Todo from '../components/Todo.vue';
 <template>
     <div class="overflow">
         <Todo />
+        
         <!-- 
             colocar en el todo de arriba
             :style="'background-color:'+ backColor?.back?.color"

@@ -6,12 +6,14 @@ import { useReadTodo } from "../store/Dashboard/useReadTodo";
 import FeatureForm from "./DashBoard/Form/FeatureForm.vue";
 import Form from "./DashBoard/Form/Form.vue";
 import TodoChild from "./DashBoard/Todo/TodoChild.vue";
+import ModalTask from "./DashBoard/Todo/ModalTask.vue";
+import { useModal } from "../store/Dashboard/useModalTask";
 
 const count = ref(0);
 
 const sendTablero = useSendTodo();
 const readTablero = useReadTodo();
-
+const modalTask = useModal();
 
 const route = useRoute();
 const routeId = route.params.id;
@@ -32,6 +34,7 @@ function handleList() {
             <TodoChild :routeId="routeId"/>
             <FeatureForm @click.prevent="handleList" v-if="sendTablero.modal == false" />
             <Form v-else :routeId="routeId" />
+            <ModalTask />
         </section>
     </div>
 </template>

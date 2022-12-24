@@ -2,6 +2,7 @@
 import { ref } from '@vue/reactivity';
 import ButtomLink from './Buttom/ButtomLink.vue';
 import { useSidebar } from '../../store/Sidebar/useSidebar'
+import ButtonPremiun from '../Premiun/ButtonPremiun.vue';
 
 const sidebar = useSidebar();
 
@@ -15,9 +16,10 @@ function handleModal() {
 <template >
 
     <aside id="sidebar" class="sidebar" :class="sidebar.modal === true && 'toggle-sidebar'">
-        <button class="btn position-absolute position text-light arrow-right " :class="sidebar.modal === true && 'arrow-left'" type="button" @click="handleModal">
+        <button class="btn position-absolute position text-light arrow-right "
+            :class="sidebar.modal === true && 'arrow-left'" type="button" @click="handleModal">
             <span class="material-icons-outlined fs-2">
-                arrow_circle_right
+                chevron_right
             </span>
         </button>
         <ul class="sidebar-nav" id="sidebar-nav">
@@ -39,8 +41,12 @@ function handleModal() {
             </div>
 
             <ButtomLink icon="numbers" title="About us" href="about" />
-
         </ul>
+
+        <div class="d-flex align-items-center position-absolute bottom-0 mb-3">
+            <ButtonPremiun icon="dashboard" href="" text="Grab Premiun"/>
+
+        </div>
     </aside>
 </template>
 <style scoped>
@@ -48,15 +54,19 @@ function handleModal() {
 a {
     text-decoration: none;
 }
-.arrow-right{
+
+.arrow-right {
     transform: rotate(-180deg);
     transition: .3s linear;
 }
-.arrow-left{
+
+.arrow-left {
     transform: rotate(0deg);
     transition: .3s ease-in-out;
+    color: black !important;
 
 }
+
 .position {
     top: 0;
     right: -.7rem;
@@ -117,6 +127,8 @@ a {
     .sidebar.toggle-sidebar {
 
         left: -260px;
+        background-color: #0230472b;
+
     }
 }
 

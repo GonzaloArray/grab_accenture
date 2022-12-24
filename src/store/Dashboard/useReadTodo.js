@@ -22,6 +22,7 @@ export const useReadTodo = defineStore('readTodo', () => {
                     name: doc.data().name,
                     id: doc.data().id,
                     idProyect: doc.data().idProyect,
+                    idList: doc.id
                 }
 
                 frPost.push(todo)
