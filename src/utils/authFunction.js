@@ -12,7 +12,8 @@ import {
 
 import { useUserStore } from "../store/user.js";
 import router from "../router";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, onSnapshot, query, where } from "firebase/firestore";
+import { ref } from "vue";
 
 const store = useUserStore();
 
@@ -72,7 +73,32 @@ function loginGoogle() {
 
     signInWithPopup(auth, googleProvider)
         .then(result => {
-            console.log(result.user)
+            const userCollection = query(collection(db, "user_register"), where("uid", "==", result.user.uid));
+
+            onSnapshot(userCollection, (querySnapshot) => {
+                const user = [];
+                querySnapshot.forEach((doc) => {
+                    user.push({
+                        name: doc.data().name,
+                        uid: doc.data().uid,
+                        photoURL: doc.data().photoURL,
+                        email: doc.data().email
+                    });
+                });
+
+                if (user.length == 0) {
+                    addDoc(collection(db, 'user_register'), {
+                        name: result.user.displayName,
+                        email: result.user.email,
+                        uid: result.user.uid,
+                        photoURL: result.user.photoURL,
+                        online: true,
+                    });
+                }
+
+            });
+
+
             store.addUsuario(result.user);
 
         })
@@ -97,7 +123,7 @@ function loginGitHub() {
     signInWithPopup(auth, githubProvider)
         .then(result => {
             store.addUsuario(result.user)
-            
+
         })
         .catch(err => console.log(err));
 }

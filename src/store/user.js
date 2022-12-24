@@ -1,26 +1,26 @@
 import { defineStore } from "pinia"
-import { ref,computed } from "vue"
+import { ref, computed } from "vue"
 
 
 
 export const useUserStore = defineStore('user' , ()=> {
     
-    const user = ref(null);
+    const usuario = ref(null);
 
     const addUsuario = (user) => {
-        user.value = user
+        usuario.value = user
     }
 
     const existeUsuario = computed(() => {
-        if (user.value === null) {
+        if (usuario.value === null) {
             return false;
         } else {
             return true;
         }
     })
-
+    
     return{
-        user,
+        usuario,
         addUsuario,
         existeUsuario
     }
