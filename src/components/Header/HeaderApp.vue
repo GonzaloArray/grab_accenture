@@ -2,7 +2,6 @@
 import { RouterLink } from 'vue-router';
 import { useUserStore } from "../../store/user.js";
 import { getAuth, signOut } from '@firebase/auth';
-import ButtonPremiun from '../Premiun/ButtonPremiun.vue';
 import CreateBoard from '../DashBoard/CreateBoard.vue';
 
 const user = useUserStore()
@@ -69,7 +68,6 @@ function signout() {
                     <button class="btn btn-danger" v-if="user.existeUsuario" @click="signout()">
                         Log Out
                     </button>
-                    <ButtonPremiun href="" icon="dashboard" text="Grab premiun" />
                 </div>
             </div>
         </div>

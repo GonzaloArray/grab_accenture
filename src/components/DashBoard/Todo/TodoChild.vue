@@ -3,18 +3,22 @@ import { addDoc, collection, doc, query, updateDoc, where } from '@firebase/fire
 import { onMounted } from '@vue/runtime-core';
 import { useReadTodo } from '../../../store/Dashboard/useReadTodo';
 import { useReadTask } from '../../../store/Dashboard/useReadTask'
+import { useModal } from '../../../store/Dashboard/useModalTask'
 import { db } from '../../../utils/firebase';
 import InputNew from '../../InputNew.vue';
 import ItemTask from './ItemTask.vue';
+import MenuItem from './MenuItem.vue';
+
 
 const readTablero = useReadTodo();
 const readTask = useReadTask();
+const modalTask = useModal();
 
 const props = defineProps({
     routeId: String,
 })
 
-const onDrop = (evt, dest) =>{
+const onDrop = (evt, dest) => {
 
     const { boardId, itemId } = JSON.parse(evt.dataTransfer.getData("item"));
 
@@ -51,7 +55,10 @@ onMounted(() => {
 <template>
     <div class="list" @drop="onDrop($event, board)" @dragover.prevent @dragenter.prevent
         v-for="board in readTablero.arrayTodo" :key="board.id">
-        <h2 class="list-title">{{ board.name }}</h2>
+        <div class="d-flex justify-content-between align-items-center">
+            <h2 class="list-title">{{ board.name }}</h2>
+            <MenuItem :idList="board.idList" />
+        </div>
         <div class="input mx-2">
             <InputNew @on-new-item="(text) => handleNewItem(text, board.id)" />
         </div>

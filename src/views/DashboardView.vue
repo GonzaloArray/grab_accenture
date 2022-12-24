@@ -16,11 +16,11 @@ const sidebar = useSidebar();
     <div class="d-flex">
         <Sidebar />
         <section class="px-2 pt-4 toggle" :class="sidebar.modal == true && 'toggle-modal'">
-            <SendBoard v-if="store?.create?.title == 'Create board' && store.modal"/>    
-            <SendSpace v-if="store?.create?.title == 'Create space' && store.modal"/>    
-    
+            <SendBoard v-if="store?.create?.title == 'Create board' && store.modal" />
+            <SendSpace v-if="store?.create?.title == 'Create space' && store.modal" />
+
             <Board />
-    
+
         </section>
     </div>
 </template>
@@ -29,13 +29,22 @@ const sidebar = useSidebar();
 .bg__secundario {
     background-color: #023047 !important;
 }
-.bg__general{
+
+.bg__general {
     background-color: #c4c4c4;
 }
-.toggle{
-    margin-left: 300px;
+
+.toggle {
+    margin-left: 0px;
 }
-.toggle-modal{
+
+@media (min-width: 768px) {
+    .toggle {
+        margin-left: 300px;
+    }
+}
+
+.toggle-modal {
     margin-left: 40px;
 }
 </style>
