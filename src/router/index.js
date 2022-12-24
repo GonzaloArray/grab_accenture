@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import HomeView from '../views/LandingView.vue'
 
 
 
@@ -20,11 +20,6 @@ const router = createRouter({
       path: '/dashboard',
       name: 'dashboard',
       component: () => import('../views/DashboardView.vue')
-    },
-    {
-      path:'/landing',
-      name:'landing',
-      component: () => import('../views/LandingView.vue')
     },
     {
       path:'/work',

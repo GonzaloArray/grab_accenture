@@ -5,7 +5,7 @@ import { getAuth, signOut } from '@firebase/auth';
 import ButtonPremiun from '../Premiun/ButtonPremiun.vue';
 import CreateBoard from '../DashBoard/CreateBoard.vue';
 
-const user  =  useUserStore()
+const user = useUserStore()
 
 function signout() {
     const auth = getAuth();
@@ -19,86 +19,61 @@ function signout() {
 
 </script>
 <template>
-    <nav class="navbar d-flex justify-content-between shadow px-3">
-        <div class="d-flex align-items-center gap-3 text-light fs-7">
-            <RouterLink to="/landing" class="me-5 mt-0">
-    <nav class="navbar navbar-expand-lg bg-light">
+    <nav class="navbar navbar-expand-lg bg-light px-0 px-md-2">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled">Disabled</a>
-                    </li>
-                </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-    </nav>
-    <!-- <nav class="navbar d-flex justify-content-between shadow">
-        <div class="d-flex align-items-center gap-3">
             <RouterLink to="/landing" class="me-3">
                 <img src="../../assets/Images/letraGrab.png" alt="Letra de GRAB">
             </RouterLink>
-            <RouterLink class="nav-link fw-bold" to="/">
-                Home
-            </RouterLink>
-            <RouterLink class="nav-link fw-bold" to="/dashboard">
-                Dashboard
-            </RouterLink>
-            <RouterLink class="nav-link fw-bold" to="/contact">
-                Contact
-            </RouterLink>
-            <CreateBoard />
-        </div>
-        <div class=" d-flex align-items-center">
-            <RouterLink to="/login" class="nav-link text-light fw-bold fs-7 me-4 bg-dark px-5 py-2 rounded-2 hover"
-                v-if="!user.existeUsuario">
-                <div class="d-flex align-items-center">
-                    <span class="material-icons-outlined me-2">
-                        login
-                    </span>
-                    <p class="m-0">Login</p>
-                </div>
-            </RouterLink>
-            <button class="btn btn-danger" v-if="user.existeUsuario" @click="signout()">
-                Log Out
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="material-icons-outlined text-light">
+                    menu
+                </span>
             </button>
-            <ButtonPremiun href="" icon="dashboard" text="Grab premiun" />
-            <!-- <button class="btn btn-premium rounded-0">
-                <img src="../../assets/Images/logoGrab.png" alt="">
-                <span>PREMIUM</span>
-            </button> -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav d-flex me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <RouterLink class="nav-link text-light fw-bold" to="/">
+                            Home
+                        </RouterLink>
+                    </li>
+                    <li class="nav-item">
+                        <RouterLink class="nav-link text-light fw-bold" to="/dashboard">
+                            Dashboard
+                        </RouterLink>
+                    </li>
+                    <li class="nav-item">
+                        <RouterLink class="nav-link text-light fw-bold" to="/contact">
+                            Contact
+                        </RouterLink>
+                    </li>
+                    <li class="nav-item">
+                        <RouterLink class="nav-link text-light fw-bold" to="/prueba">
+                            Prueba
+                        </RouterLink>
+                    </li>
+                </ul>
+                <div class=" d-flex align-items-center">
+                    <RouterLink to="/login"
+                        class="nav-link text-light fw-bold fs-7 me-4 bg-dark px-5 py-2 rounded-2 hover"
+                        v-if="!user.existeUsuario">
+                        <div class="d-flex align-items-center">
+                            <span class="material-icons-outlined me-2">
+                                login
+                            </span>
+                            <p class="m-0">Login</p>
+                        </div>
+                    </RouterLink>
+                    <button class="btn btn-danger" v-if="user.existeUsuario" @click="signout()">
+                        Log Out
+                    </button>
+                    <ButtonPremiun href="" icon="dashboard" text="Grab premiun" />
+                </div>
+            </div>
         </div>
-    </nav> -->
+    </nav>
 </template>
 <style scoped>
 a:hover {
@@ -106,97 +81,40 @@ a:hover {
 }
 
 .router-link-active {
-    color: #ffb703;
+    color: #ffb703 !important;
 }
-.hover p{
+
+.hover p {
     transform: translateX(-.8rem);
 }
-.hover span{
+
+.hover span {
     opacity: 0;
     transition: .2s;
 }
+
 .hover:hover span {
     opacity: 1;
     transition: .4s;
     transform: translateX(-1rem);
 }
+
 .hover:hover {
     background-color: #ffb703 !important;
 }
 
 .navbar {
-    width: 100%;
-    background-color: #023047;
-        /* padding: 0 0; */
-    /* max-height: 3rem; */
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    min-height: 10vh;
-    position: sticky;
-    top: 0;
+    background-color: #023047 !important;
+    min-height: 64px;
 }
 
 .contenedor-botones {
-    width: 22rem;
-    height: 10vh;
+    height: 7vh;
+
 }
 
 .navbar img:nth-child(1) {
     height: 1rem;
     padding-left: 1rem;
-}
-
-
-.btn-premium {
-    background-color: var(--thrid);
-    color: white;
-    font-family: var(--font-title);
-    font-weight: bold;
-    font-size: 1.5rem;
-    text-shadow: 1px 1px 1px black;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    /* padding: .5rem;
-    transform: scale(1.1) translateY(.5rem); */
-    width: 12rem;
-    min-height: 100%;
-}
-.btn-premium:hover{
-    box-shadow: 0px 0px 5px 0px rgba(235,225,27,0.67)
-}
-.btn-premium>img{
-    height: 2rem !important;
-    padding-left: 0px !important;
-    filter: drop-shadow(1px 1px 1px #000);
-}
-.offcanvas {
-    max-width: 15rem;
-}
-
-.offcanvas-header {
-    background-color: #023047;
-    color: white;
-}
-
-.offcanvas-header img {
-    height: 1rem;
-}
-
-.offcanvas-body {
-    background-color: rgba(0, 0, 0, 0.489);
-    color: white;
-    padding-top: 0;
-}
-
-.offcanvas-body ul {
-    padding-left: 0;
-
-}
-
-.offcanvas-body ul li {
-    border-bottom: 1px solid white;
-    padding: 1rem 0;
 }
 </style>

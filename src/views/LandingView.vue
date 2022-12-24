@@ -10,8 +10,8 @@
                 </div>
                 <div class="col-md-4 d-flex flex-column align-items-center p-2">
                     <p>Start writing <br>your homework</p>
-                    <button class="btn d-flex justify-content-center align-items-center gap-2">
-                        <span>TRY NOW</span>
+                    <button class="btn px-4 py-2 d-flex justify-content-center align-items-center gap-2 hover">
+                        <p class="m-0 fs-4">TRY NOW</p>
                         <span class="material-icons-outlined">
                             east
                         </span>
@@ -71,7 +71,7 @@
         </div>
         <div class="seccion septima-seccion">
             <div class="primer-div col-md-8">
-                <h2 class="mb-0">ADVANTAGES OF USING<img src="../assets/Images/letraGrab.png" alt=""></h2>
+                <h2 class="mb-0">ADVANTAGES OF USING<img class="width" src="../assets/Images/letraGrab.png" alt=""></h2>
             </div>
             <div class="segundo-div ">
                 <div class="d-flex flex-column  col-md-3">
@@ -133,7 +133,20 @@
 </template>
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
-
+.width{
+    width: 15rem!important;
+}
+.hover:hover{
+    background-color: rgb(2, 33, 98)!important;
+    transition: .4s linear;
+}
+.hover span{
+    transition: .2s linear;
+}
+.hover:hover span{
+    transform: translateX(10px);
+    transition: .2s linear;
+}
 .contenedor-principal {
     width: 100%;
 }
