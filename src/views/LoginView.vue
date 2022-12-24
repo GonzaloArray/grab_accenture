@@ -14,7 +14,6 @@ import { loginGoogle } from '../utils/authFunction';
                 class="d-flex flex-column justify-content-center align-items-center bg-white rounded-2 form-principal mb-3">
                 <div class="d-flex justify-content-center align-items-center imagenes rounded-2">
                     <img src="../assets/Images/logoGrab.png" alt="Logo de GRAB">
-                    <img src="../assets/Images/letraGrab.png" alt="Letras de GRAB">
                 </div>
                 <form class="d-flex flex-column justify-content-center align-items-center">
                     <div class="form-floating mb-3">

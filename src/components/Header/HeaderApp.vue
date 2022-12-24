@@ -48,11 +48,6 @@ function signout() {
                             Contact
                         </RouterLink>
                     </li>
-                    <li class="nav-item">
-                        <RouterLink class="nav-link text-light fw-bold" to="/prueba">
-                            Prueba
-                        </RouterLink>
-                    </li>
                 </ul>
                 <div class=" d-flex align-items-center">
                     <RouterLink to="/login"
