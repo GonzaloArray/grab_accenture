@@ -1,5 +1,5 @@
 <script setup>
-
+import FooterApp from '../components/FooterApp.vue';
 </script>
 <template>
     <div class="contenedor-principal">
@@ -129,7 +129,7 @@
         </div>
     </div>
 
-
+<FooterApp />
 </template>
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');

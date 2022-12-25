@@ -2,10 +2,10 @@
 </script>
 <template>
     <div class="todo d-flex flex-column justify-content-center aling-items-center">
-    <h2 class="mt-5 mx-auto text-center">Privacy Policy</h2>
-   <p class="mx-auto fs-4"> What this policy covers.</p>
+    <h2 class="mt-5 mx-auto text-center mb-3">Privacy Policy</h2>
+   <p class="mx-auto fs-4 mb-3"> What this policy covers.</p>
 <p class="mx-auto fs-6 text-center"> Your privacy is important to us, and so is being transparent about how we collect,</p>
-<p class="mx-auto fs-6 text-center">use, and share information about you. This policy is intended to help you understand:</p> 
+<p class="mx-auto fs-6 text-center mb-3">use, and share information about you. This policy is intended to help you understand:</p> 
 <div class="accordion w-75 mx-auto mb-5" id="accordionExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingOne">
@@ -50,11 +50,16 @@
 .todo{
     background-color:#023047;
     color:white;
-   
+    min-height: 90vh;
+    background-image: radial-gradient(circle at 37.72% -19.64%, #5f627f 0, #00214d 50%, #000022 100%);
 }
+strong{
+color:#ffb703;
+}
+
 .accordion-button{
     background-color:#023047;
-    color:white;
+    color:#fa8500;
 }
 h2{
     font-family: var(--font-title);

@@ -2,10 +2,10 @@
 </script>
 <template>
 <div class="todo">
-    <div class="seccionA d-flex justify-content-evenly pb-5 pt-3">
+    <div class="seccionA d-flex justify-content-evenly pb-5">
         <div>
             <h2 class="text-center mt-5">Contact our sales team</h2>
-            <div class="card mt-3 ">
+            <div class="card mt-3 shadow-lg rounded">
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
@@ -29,13 +29,13 @@
                     </div>
 
                     <a href="#"
-                        class="btn btn-primary mt-2 position-absolute bottom-2 start-100 translate-middle">Submit</a>
+                        class="btn btn-primary mt-2">Submit</a>
                 </div>
             </div>
         </div>
         <div>
             <img class="dibujo mt-5" src="../assets/Images/imagenContacto.png" alt="telefono">
-            <div class="card" style="width: 18rem;">
+            <div class="card shadow-lg rounded" style="width: 18rem;">
   <div class="card-body">
     <p class="card-text text-center mx-auto">Do you need information about our premium options?</p>
     <p class="card-text mx-2">Send us your information and a GRAB representative will contact you shortly.</p>
@@ -43,23 +43,22 @@
 </div>
             </div>
             </div>
-            
-            <div class="seccionB pt-5">
-                <div class="card mb-3 mx-auto" style="width:70%">
-                    <div class="row g-0">
-                        <div class="col-md-4 mx-auto my-auto text-center">
+            <div class="seccionB p-3">
+                <!--<div class="card mb-3 mx-auto" style="width:70%">-->
+                    <div class="row">
+                        <div class="col-4 mx-auto my-auto text-center">
                             <img src="../assets/Images/logoGrab.png" class="logo img-fluid rounded-start" alt="logo">
                             <img src="../assets/Images/letraGrab.png" class="brand img-fluid rounded-start" alt="brand">
                         </div>
-                        <div class="caja col-md-8 text-center">
-                            <div class="card-body ">
+                        <div class="caja col-4 text-center">
                                 <h5 class="card-title">Contact Us</h5>
                                 <p class="card-text">(+54)387 456 7890</p>
                                 <p class="card-text">Country: Argentina (World Champion)</p>
                                 <p class="card-text">grab@gmail.com</p>
                                 <span></span>
-                                <div class="col-xs-12 col-md-6 col-lg-4 mb-3 mx-auto">
-                                    <i class="icono me-3"><img src='../assets/Images/logoFacebook.svg' alt="face"></i>
+                                </div>
+                                <div class=" col-lg-4 mb-3 mx-auto mt-3">
+                                    <i class="icono me-3 fs-4"><img src='../assets/Images/logoFacebook.svg' alt="face"></i>
                                     <i class="icono me-3"><img src="../assets/Images/logoInsta.svg" alt="insta"></i>
                                     <i class="icono me-3"><img src="../assets/Images/logoLink.svg" alt="link"></i>
                                     <i class="icono me-3"><img src="../assets/Images/logoTwiter.svg" alt="twit"></i>
@@ -67,18 +66,16 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            </div>
+         
+
 </template>
 <style scoped>
 .todo{
-    max-height: 90vh;
+    max-height: 80vh;
 }
 h2{ 
     font-family: var(--font-title  ) 
 }
-
 
 .btn {
     background-color: #fbb703;
@@ -88,18 +85,18 @@ h2{
 input,
 textarea {
     border-radius: 0.7rem;
-    background-color: darkslategray;
     border-color: darkslategray;
 }
 
 .seccionA {
-    margin-top:4rem;
     background-color: #023047;
+    background-image: radial-gradient(circle at 37.72% -19.64%, #5f627f 0, #00214d 50%, #000022 100%);
     color: white;
     font-family: var(--font-text);
 }
 
 .seccionB {
+    
     background-color: #023047;
     color: white;
     font-family: var(--font-text);
@@ -113,11 +110,14 @@ textarea {
 .card {
     width: 100%;
     border-style: none;
+    background-color: #023047;
+    border-radius: 5rem;
 }
 
 .card-body {
     color: white;
     background-color: #023047;
+    border-radius: 1rem;
 
 
 }
