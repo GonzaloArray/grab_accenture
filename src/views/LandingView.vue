@@ -69,7 +69,7 @@ import { RouterLink } from 'vue-router';
                 <p class="text-center">Create your project, place your work area and coordinate with your colleagues.</p>
             </div>
             <div class="col-md-4">
-                <img src="https://emotion.com.py/wp-content/uploads/2022/07/pagina-en-construccion.png" alt="">
+                <img src="../assets/Images/screenDashboard.jpg" alt="">
             </div>
         </div>
         <div class="seccion septima-seccion">
