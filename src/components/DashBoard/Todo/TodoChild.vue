@@ -42,7 +42,7 @@ function handleNewItem(text, boarId) {
         id: crypto.randomUUID(),
         idBoard: boarId,
         idProyect: props.routeId,
-        date: Date.now()
+        date: Date.now(),
     });
 
 }

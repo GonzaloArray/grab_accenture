@@ -2,6 +2,7 @@
 import { computed, onMounted } from '@vue/runtime-core';
 import { useReadBoard } from '../../store/useReadBoard';
 import CreateBoard from './CreateBoard.vue';
+import SpaceBoard from './SpaceBoard.vue';
 import TableBoard from './TableBoard.vue';
 
 const read = useReadBoard();
@@ -23,9 +24,7 @@ const read = useReadBoard();
     </div>
     <section class="ps-0 ps-md-2" v-else>
         <div v-for=" board in read.arrayProyect" :key="board.id">
-            <div class="p-2 d-flex justify-content-between align-items-center my-2 border__space">
-                <h2 class="m-0 fs-6">{{ board.title }}</h2>
-            </div>
+            <SpaceBoard :boardTitle="board.title" :id="board.idSpace"/>
             <TableBoard :propId="board.id" />
         </div>
     </section>
