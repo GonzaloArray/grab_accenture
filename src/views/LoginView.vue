@@ -1,6 +1,6 @@
 <script setup>
 import { RouterLink } from 'vue-router';
-import { loginGoogle } from '../utils/authFunction';
+import { loginGoogle,loginFacebook,loginGitHub } from '../utils/authFunction';
 
 
 </script>
@@ -30,9 +30,9 @@ import { loginGoogle } from '../utils/authFunction';
                 <button class="btn mb-2 d-flex align-items-center bg-danger text-white" @click.prevent="loginGoogle"><img
                         src="../assets/Images/logoGoogle.svg" alt="Logo de Google" class="me-1" />Continue with
                     Google</button>
-                <button class="btn mb-2 d-flex align-items-center bg-primary text-white" ><img src="../assets/Images/logoFacebook.svg"
+                <button class="btn mb-2 d-flex align-items-center bg-primary text-white" @click.prevent="loginFacebook"><img src="../assets/Images/logoFacebook.svg"
                         alt="Logo de Facebook" class="me-1">Continue with Facebook</button>
-                <button class="btn mb-2 d-flex align-items-center bg-dark text-white"><img src="../assets/Images/logoGitHub.svg"
+                <button class="btn mb-2 d-flex align-items-center bg-dark text-white" @click.prevent="loginGitHub"><img src="../assets/Images/logoGitHub.svg"
                         alt="Logo de GitHub" class="me-1">Continue with GitHub</button>
                 <div class="separador"></div>
                 <p class="mb-0">Are you not registered?</p>
