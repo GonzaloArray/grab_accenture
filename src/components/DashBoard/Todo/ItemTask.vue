@@ -4,6 +4,7 @@ import { computed } from "@vue/runtime-core";
 import { useDeleteTask } from "../../../store/Dashboard/CRUD/useDeleteTask";
 import { useModal } from "../../../store/Dashboard/useModalTask";
 import { useReadTask } from "../../../store/Dashboard/useReadTask";
+import TaskStatus from "../ModalTask/TaskStatus.vue";
 
 const readTask = useReadTask();
 const modalTask = useModal();
@@ -47,19 +48,21 @@ const updateTask = computed(() => {
 <template>
     {{ updateTask }}
     <ul class="list-items">
-        <li @click.prevent="modalTask.handleModal(item)" class="rounded-2 p-0 mt-2 item drag-el position-relative"
+        <li @click.prevent="modalTask.handleModal(item)" class="rounded-1 p-0 mt-2 item drag-el position-relative"
             draggable="true" @dragstart="handleDragStart($event, idTablero, item.id);"
             @dragend="handleDragEnd($event, idTablero, item.id);"
             @dragenter="handleDragEnter($event, idTablero, item.id)" v-for="item in taskWithId" :key="item.id">
-            <div class="d-flex align-items-center hover">
+            <div class="d-flex align-items-start hover flex-column-reverse position-relative py-1">
                 <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="nav-link p-2 w-100 text-start">
                     <p>{{ item.title }}</p>
                 </a>
-                <a class="nav-link mt-1 p-1" @click.prevent="deleteTask.handleDelete(item.idFire)">
+                <a class="nav-link mt-1 p-1 position-absolute end-0" @click.prevent="deleteTask.handleDelete(item.idFire)">
                     <span class="material-icons-outlined fs-6">
                         close
                     </span>
                 </a>
+                <TaskStatus :idTask="item.idFire"/>
+
             </div>
         </li>
     </ul>

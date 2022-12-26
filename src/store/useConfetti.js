@@ -1,9 +1,10 @@
 import { defineStore } from "pinia";
 import confetti from "canvas-confetti";
+import router from "../router";
+
 
 
 export const useConfetti = defineStore('confetti', ()=> {
-
 
     function handleConfetti() {
         var end = Date.now() + (2 * 1000);
@@ -31,6 +32,8 @@ export const useConfetti = defineStore('confetti', ()=> {
                 requestAnimationFrame(frame);
             }
         }());
+
+        router.push('dashboard')
     }
 
     return{

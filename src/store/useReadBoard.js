@@ -20,7 +20,8 @@ export const useReadBoard = defineStore('ReadBoard', () => {
 
                 const todo = {
                     title: doc.data().title,
-                    id: doc.data().id
+                    id: doc.data().id,
+                    idSpace: doc.id
                 }
 
                 frPost.push(todo)
@@ -40,7 +41,8 @@ export const useReadBoard = defineStore('ReadBoard', () => {
                     status: doc.data().status,
                     date: doc.data().date,
                     id: doc.data().id,
-                    idBoard: doc.data().idBoard
+                    idBoard: doc.data().idBoard,
+                    idTablero: doc.id
                 }
 
                 frPost.push(todo)

@@ -1,4 +1,5 @@
 <script setup>
+
 import { RouterLink } from 'vue-router';
 
 </script>
@@ -150,7 +151,7 @@ import { RouterLink } from 'vue-router';
         </div>
     </div>
 
-
+<FooterApp />
 </template>
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');

@@ -3,40 +3,44 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 import { db } from "../../utils/firebase";
 
-export const useReadTask = defineStore('readTask', ()=> {
+export const useReadTask = defineStore('readTask', () => {
+    try {
+        const arrayTask = ref([]);
 
-    const arrayTask = ref([]);
+        const readTask = (id) => {
 
-    const readTask = (id) => {
-        
-        const nameCollection = collection(db, 'task')
+            const nameCollection = collection(db, 'task')
 
-        const todoCollectionQuery = query(nameCollection, where("idProyect", "==", id));
+            const todoCollectionQuery = query(nameCollection, where("idProyect", "==", id));
 
-        onSnapshot(todoCollectionQuery, (querySnapshot) => {
-            const frPost = [];
+            onSnapshot(todoCollectionQuery, (querySnapshot) => {
+                const frPost = [];
 
-            querySnapshot.forEach((doc) => {
+                querySnapshot.forEach((doc) => {
 
-                const todo = {
-                    title: doc.data().title,
-                    id: doc.data().id,
-                    idProyect: doc.data().idProyect,
-                    idBoard: doc.data().idBoard,
-                    date: doc.data().date,
-                    idFire: doc.id
-                }
+                    const todo = {
+                        title: doc.data().title,
+                        id: doc.data().id,
+                        idProyect: doc.data().idProyect,
+                        idBoard: doc.data().idBoard,
+                        date: doc.data().date,
+                        idFire: doc.id
+                    }
 
-                frPost.push(todo)
+                    frPost.push(todo)
 
+                });
+
+                arrayTask.value = frPost;
             });
+        }
 
-            arrayTask.value = frPost;
-        });
+        return {
+            arrayTask,
+            readTask
+        }
+    } catch (error) {
+        console.log("Hubo un error")
     }
 
-    return{
-        arrayTask,
-        readTask
-    }
 })
