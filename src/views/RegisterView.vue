@@ -10,7 +10,6 @@ import { RouterLink } from 'vue-router';
             <form class="d-flex flex-column justify-content-center align-items-center bg-white rounded-2 mb-3 form-principal">
                 <div class="d-flex justify-content-center align-items-center imagenes rounded-2">
                 <img src="../assets/Images/logoGrab.png" alt="Logo de GRAB">
-                <img src="../assets/Images/letraGrab.png" alt="Letras de GRAB">
                 </div>
                 <form class="d-flex flex-column justify-content-center align-items-center">
                     <div class="form-floating mb-3">
@@ -27,13 +26,6 @@ import { RouterLink } from 'vue-router';
                     </div>
                     <button class="btn btn-success">Continue</button>
                 </form>
-                <span class="mb-3">OR</span>
-                <button class="btn mb-2 d-flex align-items-center"><img src="../assets/Images/logoGoogle.svg"
-                        alt="Logo de Google" class="me-1">Continue with Google</button>
-                <button class="btn mb-2 d-flex align-items-center"><img src="../assets/Images/logoFacebook.svg"
-                        alt="Logo de Facebook" class="me-1">Continue with Facebook</button>
-                <button class="btn mb-2 d-flex align-items-center"><img src="../assets/Images/logoGitHub.svg"
-                        alt="Logo de GitHub" class="me-1">Continue with GitHub</button>
                 <div class="separador"></div>
                 <p class="mb-0">Already have an account?</p>
                 <RouterLink to="/login">
@@ -48,7 +40,7 @@ import { RouterLink } from 'vue-router';
 </template> 
 <style scoped>
 .contenedor-principal{
-    height: 90vh;
+    height: 92vh;
     background-color: #023047;
 }
 .imagenes {
