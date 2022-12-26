@@ -30,9 +30,9 @@ function handleModal() {
             <div>
                 <ButtomLink icon="home" title="Home" href="" />
                 <ButtomLink icon="space_dashboard" title="Dashboard" href="dashboard" />
-                <ButtomLink icon="person" title="Profile" href="profile" />
-                <ButtomLink icon="forward_to_inbox" title="Contact" href="contact" />
-                <ButtomLink icon="person_add" title="Follower" href="follower" />
+                <!-- <ButtomLink icon="person" title="Profile" href="profile" /> -->
+                <!-- <ButtomLink icon="forward_to_inbox" title="Contact" href="contact" /> -->
+                <!-- <ButtomLink icon="person_add" title="Follower" href="follower" /> -->
             </div>
 
 
@@ -42,7 +42,7 @@ function handleModal() {
 
             </div>
 
-            <ButtomLink icon="numbers" title="About us" href="about" />
+            <!-- <ButtomLink icon="numbers" title="About us" href="about" /> -->
         </ul>
 
         <div class="d-flex align-items-center position-absolute bottom-0 mb-3">
