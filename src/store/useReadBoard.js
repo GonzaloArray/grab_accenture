@@ -20,7 +20,8 @@ export const useReadBoard = defineStore('ReadBoard', () => {
 
                 const todo = {
                     title: doc.data().title,
-                    id: doc.data().id
+                    id: doc.data().id,
+                    idSpace: doc.id
                 }
 
                 frPost.push(todo)

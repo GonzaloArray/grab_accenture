@@ -20,7 +20,7 @@ function signout() {
 <template>
     <nav class="navbar navbar-expand-lg bg-light px-0 px-md-2">
         <div class="container-fluid">
-            <RouterLink to="/landing" class="me-3">
+            <RouterLink to="" class="me-3">
                 <img src="../../assets/Images/letraGrab.png" alt="Letra de GRAB">
             </RouterLink>
 

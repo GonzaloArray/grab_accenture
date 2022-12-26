@@ -4,6 +4,7 @@ import { ref } from "@vue/reactivity";
 import { useModal } from "../../../store/Dashboard/useModalTask";
 import { useUserStore } from "../../../store/user";
 import { db } from "../../../utils/firebase";
+import ModalHagTags from "../ModalTask/ModalHagTags.vue";
 
 const modalTask = useModal();
 const user = useUserStore();
@@ -62,40 +63,8 @@ function handleSubmit(id, title) {
                             <div class="d-flex gap-4">
                                 <div>
                                     <h2 class="fs-7">Hang tags</h2>
-                                    <div class="dropdown mt-2">
-                                        <button class="btn btn-sm btn-secondary dropdown-toggle" type="button"
-                                            id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Hang tags
-                                        </button>
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                            <li>
-                                                <button class="dropdown-item bg__violet fs-7 py-2" type="button">
-                                                    <div class="d-flex align-items-center">
-                                                        <span
-                                                            class="btn btn-sm bg__violet__span py-2 rounded-circle"></span>
-                                                        <p class="m-0 ps-2 fs-7">Todo</p>
-                                                    </div>
-                                                </button>
-                                            </li>
-                                            <li>
-                                                <button class="dropdown-item bg__secondary  fs-7 py-2" type="button">
-                                                    <div class="d-flex align-items-center">
-                                                        <span class="btn btn-sm bg-primary py-2 rounded-circle"></span>
-                                                        <p class="m-0 ps-2 fs-7">In progress</p>
-                                                    </div>
-                                                </button>
-                                            </li>
-                                            <li>
-                                                <button class="dropdown-item bg__success  fs-7 py-2" type="button">
-                                                    <div class="d-flex align-items-center">
-                                                        <span
-                                                            class="btn btn-sm bg__sucess__span py-2 rounded-circle"></span>
-                                                        <p class="m-0 ps-2 fs-7">Complete</p>
-                                                    </div>
-                                                </button>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                    <ModalHagTags :idTask="modalTask?.arrayItem?.idFire"/>
+                                    
                                 </div>
                                 <h2 class="fs-7">Expiration</h2>
                             </div>
@@ -191,35 +160,4 @@ function handleSubmit(id, title) {
     transition: .3s linear;
 }
 
-.bg__violet {
-    background-color: #bf04bf36;
-}
-
-.bg__violet:hover {
-    background-color: #bf04bf63;
-}
-
-.bg__secondary {
-    background-color: #3d9aec43;
-}
-
-.bg__secondary:hover {
-    background-color: #3d9aeca4;
-}
-
-.bg__success {
-    background-color: #02a70259;
-}
-
-.bg__success:hover {
-    background-color: #02a702af;
-}
-
-.bg__sucess__span {
-    background-color: #02a702fe;
-}
-
-.bg__violet__span {
-    background-color: #bf04bf;
-}
 </style>
