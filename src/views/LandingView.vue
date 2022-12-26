@@ -1,4 +1,5 @@
 <script setup>
+import { RouterLink } from 'vue-router';
 
 </script>
 <template>
@@ -10,12 +11,14 @@
                 </div>
                 <div class="col-md-4 d-flex flex-column align-items-center p-2">
                     <p>Start writing <br>your homework</p>
-                    <button class="btn px-4 py-2 d-flex justify-content-center align-items-center gap-2 hover">
+                    <RouterLink to="/login">
+                        <button class="btn px-4 py-2 d-flex justify-content-center align-items-center gap-2 hover">
                         <p class="m-0 fs-4">TRY NOW</p>
                         <span class="material-icons-outlined">
                             east
                         </span>
-                    </button>
+                        </button>
+                    </RouterLink>
                 </div>
             </div>
         </div>
@@ -76,54 +79,72 @@
             <div class="segundo-div ">
                 <div class="d-flex flex-column  col-md-3">
                     <h2>ORGANIZE</h2>
-                    <p>Organize work so teams know what needs to be done, why their work is important, and how they need to proceed to get it done.</p>
+                    <p>Keep an order of your meeting schedules and objectives, their summary and all the notes and documents that you wish to attach.</p>
                 </div>
                 <div class="d-flex flex-column  col-md-3">
                     <h2>CHECK</h2>
-                    <p>Maintain an order of what each of your classmates is doing.</p>
+                    <p>With GRAB boards it is possible to keep the team within the assigned tasks, control the process and respect deadlines, especially if you work by sprints.</p>
                 </div>
                 <div class="d-flex flex-column  col-md-3">
-                    <h2>AT YOUR TIME</h2>
-                    <p>Like you don't have to make video calls or anything like that to be able to work.</p>
+                    <h2>EASE</h2>
+                    <p>With GRAB it is possible to work with teams from different parts of the world in a collaborative and empathetic way while maintaining a good working relationship.</p>
                 </div>
             </div>
         </div>
         <div class="seccion octava-seccion">
             <img src="../assets/Images/logoGrab.png" alt="">
             <h2>ALL THE WORK OF YOUR TEAM IN ONE PLACE.</h2>
-            <button class="btn d-flex justify-content-center align-items-center gap-2">
+            <RouterLink to="/login">
+                <button class="btn d-flex justify-content-center align-items-center gap-2 hover">
                         <span>TRY NOW</span>
                         <span class="material-icons-outlined">
                             east
                         </span>
-            </button>
+                </button>
+            </RouterLink>
         </div>
         <div class="seccion novena-seccion">
             <div class="col-md-5 d-flex flex-column justify-content-around align-items-center">
-                <h2>With GRAB Premium, you'll get everything you love about our free version, plus:</h2>
-                <button class="btn d-flex justify-content-center align-items-center gap-2">
-                        <span>PREMIMUM</span>
+                <h2>With GRAB PREMIUM, you'll get everything you love about our free version, plus:</h2>
+                <button class="btn d-flex justify-content-center align-items-center gap-2 hover">
+                        <span>PREMIUM</span>
                         <span class="material-icons-outlined">
                             east
                         </span>
                 </button>
             </div>
             <div class="col-md-5 d-flex flex-column justify-content-around align-items-center gap-3">
-                <div class="d-flex align-items-center justify-content-around">
-                    <span class="material-icons-outlined icono">headset_mic</span>
-                    <h2>PRIORITY SUPPORT</h2>
+                <div class="w-100 d-flex align-items-center justify-content-between">
+                    <div>
+                        <span class="material-icons-outlined icono">history</span>
+                    </div>
+                    <div class="w-75 d-flex justify-content-center">
+                        <h3>TASK HISTORY</h3>
+                    </div>
                 </div>
-                <div class="d-flex align-items-center justify-content-around">
-                    <span class="material-icons-outlined icono">headset_mic</span>
-                    <h2>PRIORITY SUPPORT</h2>
+                <div class="w-100 d-flex align-items-center justify-content-between">
+                    <div>
+                        <span class="material-icons-outlined icono">timer</span>
+                    </div>
+                    <div class="w-75 d-flex justify-content-center">
+                        <h3>CHRONOMETER</h3>
+                    </div>
                 </div>
-                <div class="d-flex align-items-center justify-content-around">
-                    <span class="material-icons-outlined icono">headset_mic</span>
-                    <h2>PRIORITY SUPPORT</h2>
+                <div class="w-100 d-flex align-items-center justify-content-between">
+                    <div>
+                        <span class="material-icons-outlined icono">style</span>
+                    </div>
+                    <div class="w-75 d-flex justify-content-center">
+                        <h3>TAGS PERSONALIZATION</h3>
+                    </div>
                 </div>
-                <div class="d-flex align-items-center justify-content-around">
-                    <span class="material-icons-outlined icono">headset_mic</span>
-                    <h2>PRIORITY SUPPORT</h2>
+                <div class="w-100 d-flex align-items-center justify-content-between">
+                    <div>
+                        <span class="material-icons-outlined icono">format_color_fill</span>
+                    </div>
+                    <div class="w-75 d-flex justify-content-center">
+                        <h3>BOARD PERSONALIZATION</h3>
+                    </div>
                 </div>
             </div>
         </div>
@@ -414,10 +435,11 @@ button .material-icons-outlined {
 }
 .septima-seccion .segundo-div p{
     font-family: 'Montserrat', sans-serif;
-    font-size: 2vmax;
+    font-size: 1.8vmax;
     color: white;
     font-weight: bold;
     text-align: center;
+    padding-top: 1rem;
 }
 .octava-seccion{
     background-image: radial-gradient(circle at 43.84% -20.44%, #5f627f 0, #00214d 50%, #000022 100%);
@@ -465,6 +487,14 @@ button .material-icons-outlined {
     color: #ffb703;
     text-align: center;
 }
+.novena-seccion h3{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5vmax;
+    font-weight: bold;
+    color: #ffb703;
+    text-align: center;
+    margin: 0;
+}
 .novena-seccion button{
     background-color: #ffb703;
     border-radius: 2rem;
@@ -477,4 +507,14 @@ button .material-icons-outlined {
     color:white;
     font-size: 4rem;
 }
+a{
+    text-decoration: none;
+}
+
+@media screen and (max-width: 60rem){
+    .primera-seccion{
+        background-image: linear-gradient(rgb(0, 149, 186), rgb(0, 149, 186)), url(https://coworkingfy.com/wp-content/uploads/2019/11/trabajo-en-equipo-grupo-figurativo-de-equipo-de-trabajo.jpg);
+    }
+}
+    
 </style>

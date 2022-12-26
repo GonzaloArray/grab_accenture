@@ -26,6 +26,7 @@ import { RouterLink } from 'vue-router';
                     </div>
                     <button class="btn btn-success">Continue</button>
                 </form>
+                <div class="separador"></div>
                 <p class="mb-0">Already have an account?</p>
                 <RouterLink to="/login">
                     Log in
@@ -39,7 +40,7 @@ import { RouterLink } from 'vue-router';
 </template> 
 <style scoped>
 .contenedor-principal{
-    height: 90vh;
+    height: 92vh;
     background-color: #023047;
 }
 .imagenes {
