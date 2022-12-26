@@ -2,12 +2,12 @@
 </script>
 
 <template>
-<div class="todo mt-5 d-flex justify-content-center flex-column align-items-center ">
-<img class="dibujo1 mt-3" src="../assets/Images/trabajo2.png" alt="2trab">
+<div class="todo d-flex justify-content-center flex-column align-items-center ">
+<img class="dibujo1" src="../assets/Images/trabajo2.png" alt="2trab">
 <h3 class="mx-auto text-center">Would you like to join our team?</h3>
 <h4 class="mx-auto text-center">Leave us your information so that our recruiters can contact you:</h4>
 <div>
-    <div class="card w-100 w-sm-50 m-2 mx-auto">
+    <div class="card w-100 w-sm-50 m-2 mx-auto shadow-lg rounded">
   <div class="card-body">
     <input class="form-control form-control mb-3" type="text" placeholder="Name" aria-label=".form-control-lg example">
     <input class="form-control form-control mb-3" type="text" placeholder="Last Name" aria-label=".form-control-lg example">
@@ -31,8 +31,8 @@
 </div>
 </div>
 </div>
-<div class=" pie d-flex justify-content-around">
-    <div>
+<div class=" pie d-flex justify-content-around ">
+    <div class="im mb-3">
 <img class="dibujo2 " src="../assets/Images/trabajoHombre.png" alt="">
 </div>
 <div>  
@@ -49,16 +49,19 @@
 .todo{
     background-color:#023047;
     color:white;
-    max-height: 90vh;
+}
+.card{
+  border-style: none;
+
 }
 .card-body{
     background-color:#023047; 
-    border-radius: 1rem;
+border-style: none;   
 }
 .dibujo1{
 padding: 1rem;
 width: 300px;
-    height: 300px;
+height: 300px;
 
 }
 .btn {
