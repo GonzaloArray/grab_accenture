@@ -37,7 +37,6 @@ function cancelEdit() {
 const nameCollection = collection(db, 'space')
 
 const handleDelete = async (idTablero) => {
-    console.log(idTablero)
     await deleteDoc(doc(nameCollection, idTablero));
 }
 

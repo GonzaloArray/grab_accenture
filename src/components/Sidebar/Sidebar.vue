@@ -88,7 +88,7 @@ a {
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: #aab7cf transparent;
-    box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
+    box-shadow: 0px 0px 20px rgba(1, 42, 112, 0.83);
     background-color: #023047;
 }
 

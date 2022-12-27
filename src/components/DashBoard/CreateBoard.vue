@@ -11,7 +11,7 @@ const modal = ref(false);
 
 
 function handleClick(id) {
-    
+
     const valor = store.arrayButton.find(elem => elem.id == id);
 
     store.create = valor;
@@ -29,10 +29,10 @@ function handleClick(id) {
             id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
             Create
         </button>
-        <ul class="dropdown-menu shadow width mt-1" aria-labelledby="dropdownMenuButton1">
+        <ul class="dropdown-menu shadow width" aria-labelledby="dropdownMenuButton1">
             <li v-for="button in store.arrayButton" :key="button.id">
                 <ButtonCreate class="hover p-2" @click="handleClick(button.id)" :title="button.title"
-                    :icon="button.icon" :info="button.info" />
+                    :icon="button.icon" :info="button.info" :modal="button?.modal"/>
             </li>
         </ul>
     </div>

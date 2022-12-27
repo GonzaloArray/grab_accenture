@@ -19,9 +19,12 @@ function handleClick(){
 </script>
 
 <template>
-    <form @keyup.esc="handleClick" @change="handleClick" class="position-absolute end-0 top-0 bottom-0 start-0 d-flex justify-content-center align-items-center container z-index"
-        @submit.prevent="board.handleSubmit(board.name, board.spaceName, board.visibilityName, user?.usuario?.uid)" method="POST">
-        <section class="bg-light rounded-2 container m-2 p-4 shadow width">
+    <form 
+        class="position-absolute end-0 top-0 bottom-0 start-0 d-flex justify-content-center align-items-center container z-index"
+        @submit.prevent="board.handleSubmit(board.name, board.spaceName, board.visibilityName, user?.usuario?.uid)" 
+        method="POST"
+    >
+        <section class="bg-light rounded-2 container m-2 p-4 shadow-send width">
             <div class="d-flex justify-content-between align-items-center pb-2 border-bottom ">
                 <h2 class="fs-6">Create board</h2>
                 <button @click.prevent="handleClick" class="btn btn-danger btn-sm rounded-pill">
@@ -34,8 +37,8 @@ function handleClick(){
             </div>
             <div class="mt-3">
                 <label class="fs-7" for="board">Board name</label>
-                <input @blur="handleClick" type="text" name="board" id="board" class="form-control input__border bg-light rounded-0" v-model="board.name"
-                    placeholder="Ej: Brag Proyect">
+                <input type="text" name="board" id="board" class="form-control input__border bg-light rounded-0" v-model="board.name"
+                    placeholder="Ej: Grab Proyect">
             </div>
             <div class="my-3">
                 <label class="fs-7" for="space">Space Name</label>
@@ -59,6 +62,7 @@ function handleClick(){
 
         </section>
     </form>
+    
 </template>
 
 <style scoped>
@@ -78,7 +82,7 @@ function handleClick(){
 .z-index{
     z-index: 9999;
 }
-.bg__primary {
-    background-color: #c4c4c4;
+.shadow-send{
+    box-shadow:  0 0 40rem 3rem #023047;
 }
 </style>

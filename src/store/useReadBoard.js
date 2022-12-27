@@ -18,7 +18,7 @@ export const useReadBoard = defineStore('ReadBoard', () => {
     onMounted(() => {
         const todoCollectionQuery = query(nameCollection, where("idUser", "==", user?.usuario?.uid));
 
-        onSnapshot(nameCollection, (querySnapshot) => {
+        onSnapshot(todoCollectionQuery, (querySnapshot) => {
             const frPost = [];
 
             querySnapshot.forEach((doc) => {

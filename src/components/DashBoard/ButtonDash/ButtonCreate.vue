@@ -3,11 +3,12 @@ const props = defineProps({
     info: String,
     title: String,
     icon: String,
+    modal: String,
 })
 </script>
 
 <template>
-    <button type="button" class="border-0 c__primario bg-white">
+    <button v-if="modal !== ''" type="button" class="border-0 c__primario bg-white">
         <div class="d-flex align-items-center">
             <span class="material-icons-outlined fs-5">
                 {{ icon }}

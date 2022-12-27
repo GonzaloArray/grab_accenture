@@ -78,6 +78,7 @@ function signout() {
     </nav>
 </template>
 <style scoped>
+
 a:hover {
     color: #ffb703;
 }
