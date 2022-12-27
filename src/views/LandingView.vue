@@ -1,6 +1,17 @@
 <script setup>
 
+import { onAuthStateChanged } from '@firebase/auth';
 import { RouterLink } from 'vue-router';
+import { useUserStore } from '../store/user';
+import { auth } from '../utils/firebase';
+
+const user = useUserStore();
+
+onAuthStateChanged(auth, (user1) => {
+
+    user.addUsuario(user1);
+
+});
 
 </script>
 <template>
