@@ -23,6 +23,7 @@ export const useReadTodo = defineStore('readTodo', () => {
                         name: doc.data().name,
                         id: doc.data().id,
                         idProyect: doc.data().idProyect,
+                        date: doc.data().date,
                         idList: doc.id
                     }
 

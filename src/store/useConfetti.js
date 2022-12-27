@@ -32,8 +32,6 @@ export const useConfetti = defineStore('confetti', ()=> {
                 requestAnimationFrame(frame);
             }
         }());
-
-        router.push('dashboard')
     }
 
     return{

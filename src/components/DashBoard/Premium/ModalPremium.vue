@@ -1,7 +1,8 @@
 <script setup>
 import { RouterLink } from "vue-router";
+import { useConfetti } from '../../../store/useConfetti'
 
-
+const confetti = useConfetti();
 
 </script>
 
@@ -22,9 +23,9 @@ import { RouterLink } from "vue-router";
                             <li>unlimited automations</li>
                             <li>And much more.</li>
                         </ul>
-                        <button class="btn btn-sm btn-primary w-100 my-3">
+                        <RouterLink @click.prevent="confetti.handleConfetti" to="dashboard" data-bs-dismiss="modal" class="btn btn-sm btn-primary w-100 my-3">
                             Start free trial
-                        </button>
+                        </RouterLink>
                         <RouterLink class="d-flex justify-content-center" to="politic">Learn more about the features of Grab plans</RouterLink>                        
                     </div>
                 </div>

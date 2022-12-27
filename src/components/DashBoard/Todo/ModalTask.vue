@@ -8,6 +8,8 @@ import TaskHagTag from "../../Ticket/TaskHagTag.vue";
 import ModalHagTags from "../ModalTask/ModalHagTags.vue";
 import ModalTaskAddComment from "../ModalTask/ModalTaskAddComment.vue";
 import ModalReadComment from "../ModalTask/ModalReadComment.vue";
+import ModalTaskUser from "./ModalTaskUser.vue";
+
 
 const modalTask = useModal();
 const user = useUserStore();
@@ -121,11 +123,8 @@ function handleSubmit(id, title) {
                             </span>
                             <h2 class="fs-5">Members</h2>
                         </div>
-                        <div class="d-flex align-items-center gap-2 my-3">
-                            <img :src="user?.usuario?.photoURL" class="rounded-circle width"
-                                :alt="user?.usuario?.displayName">
-                            <h2 class="fs-7 m-0">{{ user?.usuario?.displayName }}</h2>
-                        </div>
+                        <ModalTaskUser />
+
                         <hr>
 
                         <ModalTaskAddComment v-if="modalTask?.arrayItem" :idTask="modalTask?.arrayItem?.idFire"/>
