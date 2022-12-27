@@ -41,7 +41,7 @@ onMounted(()=>{
 </script>
 
 <template>
-    <div v-if="arrayEstado?.length" class="d-flex gap-2 mx-1">
+    <div v-if="arrayEstado?.length" class="d-flex gap-2 mx-1 flex-wrap">
         <button v-for="status in arrayEstado" :key="status.id" class="btn btn-sm fs-per fw-bold rounded-pill" :style="'background-color: #' + status.color + '!important;'">
             {{ status.name }}
         </button>

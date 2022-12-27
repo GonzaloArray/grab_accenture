@@ -31,6 +31,7 @@ export const useReadTodo = defineStore('readTodo', () => {
                 });
 
                 arrayTodo.value = frPost;
+                arrayTodo.value.sort((a, b) => a.date - b.date)
             });
         }
 

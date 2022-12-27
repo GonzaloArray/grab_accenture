@@ -4,7 +4,10 @@ import { ref } from "@vue/reactivity";
 import { useModal } from "../../../store/Dashboard/useModalTask";
 import { useUserStore } from "../../../store/user";
 import { db } from "../../../utils/firebase";
+import TaskHagTag from "../../Ticket/TaskHagTag.vue";
 import ModalHagTags from "../ModalTask/ModalHagTags.vue";
+import ModalTaskAddComment from "../ModalTask/ModalTaskAddComment.vue";
+import ModalReadComment from "../ModalTask/ModalReadComment.vue";
 
 const modalTask = useModal();
 const user = useUserStore();
@@ -20,6 +23,7 @@ function handleEdit() {
 function handleClose() {
     editMessage.value = false;
 }
+
 function handleSubmit(id, title) {
 
     const taskCollection = doc(db, "task", id);
@@ -36,7 +40,7 @@ function handleSubmit(id, title) {
 <template>
     <div class="modal fade mt-3" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content bg__modal">
                 <div class="modal-header">
                     <form v-if="editMessage" @submit.prevent="handleSubmit(modalTask?.arrayItem?.idFire, modalTask?.arrayItem?.title )" class="d-flex gap-2" method="POST">
                         <input type="text" v-model="modalTask.arrayItem.title" class="form-control">
@@ -68,6 +72,8 @@ function handleSubmit(id, title) {
                                 </div>
                                 <h2 class="fs-7">Expiration</h2>
                             </div>
+                            <hr>
+                            <TaskHagTag v-if="modalTask?.arrayItem"/>
                             <hr>
                             <div class="d-flex align-items-center gap-2">
                                 <span class="material-icons-outlined">
@@ -122,19 +128,8 @@ function handleSubmit(id, title) {
                         </div>
                         <hr>
 
-                        <div class="d-flex align-items-center gap-2 mt-2">
-                            <span class="material-icons-outlined">
-                                forum
-                            </span>
-                            <h2 class="fs-5">Comments</h2>
-                        </div>
-                        <form method="POST">
-                            <div>
-                                <label for="comment">Add comment</label>
-                                <input name="comment" id="comment" class="form-control" type="text"
-                                    placeholder="Ej: Hi, how are you? it's complete?">
-                            </div>
-                        </form>
+                        <ModalTaskAddComment v-if="modalTask?.arrayItem" :idTask="modalTask?.arrayItem?.idFire"/>
+                        <ModalReadComment v-if="modalTask?.arrayItem" :idTask="modalTask?.arrayItem?.idFire"/>
                     </section>
                 </div>
                 <div class="modal-footer">
@@ -146,6 +141,9 @@ function handleSubmit(id, title) {
 </template>
 
 <style scoped>
+.bg__modal{
+    background-color: #F4F5F7!important;
+}
 .width {
     width: 2rem;
 }

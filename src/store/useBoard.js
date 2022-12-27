@@ -21,7 +21,7 @@ export const useBoard = defineStore('board', () => {
         { value: "public", name: 'Public', id: crypto.randomUUID },
     ]);
     
-    const handleSubmit = (param, space, visi) => {
+    const handleSubmit = (param, space, visi, idUser) => {
         
         addDoc(boardCollection, {
             name: param,
@@ -29,6 +29,7 @@ export const useBoard = defineStore('board', () => {
             id: space,
             idBoard: crypto.randomUUID(),
             date: Date.now(),
+            idUser
         });
 
         name.value = '';
