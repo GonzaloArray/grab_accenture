@@ -25,13 +25,9 @@ import { RouterLink } from "vue-router";
                         <button class="btn btn-sm btn-primary w-100 my-3">
                             Start free trial
                         </button>
-                        <RouterLink class="d-flex justify-content-center" to="politic">Learn more about the features of Trello plans</RouterLink>                        
+                        <RouterLink class="d-flex justify-content-center" to="politic">Learn more about the features of Grab plans</RouterLink>                        
                     </div>
                 </div>
-<!--                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div> -->
             </div>
         </div>
     </div>
