@@ -4,6 +4,7 @@ import { onAuthStateChanged } from '@firebase/auth';
 import { RouterLink } from 'vue-router';
 import { useUserStore } from '../store/user';
 import { auth } from '../utils/firebase';
+import FooterApp from '../components/FooterApp.vue';
 
 const user = useUserStore();
 
@@ -25,10 +26,10 @@ onAuthStateChanged(auth, (user1) => {
                     <p>Start writing <br>your homework</p>
                     <RouterLink to="/login">
                         <button class="btn px-4 py-2 d-flex justify-content-center align-items-center gap-2 hover">
-                        <p class="m-0 fs-4">TRY NOW</p>
-                        <span class="material-icons-outlined">
-                            east
-                        </span>
+                            <p class="m-0 fs-4">TRY NOW</p>
+                            <span class="material-icons-outlined">
+                                east
+                            </span>
                         </button>
                     </RouterLink>
                 </div>
@@ -78,7 +79,8 @@ onAuthStateChanged(auth, (user1) => {
         <div class="seccion sexta-seccion">
             <div class="d-flex flex-column align-items-center justify-content-center col-md-4">
                 <h2 class="mb-3 text-center">MORE CONFORT</h2>
-                <p class="text-center">Create your project, place your work area and coordinate with your colleagues.</p>
+                <p class="text-center">Create your project, place your work area and coordinate with your colleagues.
+                </p>
             </div>
             <div class="col-md-4">
                 <img src="https://emotion.com.py/wp-content/uploads/2022/07/pagina-en-construccion.png" alt="">
@@ -91,15 +93,18 @@ onAuthStateChanged(auth, (user1) => {
             <div class="segundo-div ">
                 <div class="d-flex flex-column  col-md-3">
                     <h2>ORGANIZE</h2>
-                    <p>Keep an order of your meeting schedules and objectives, their summary and all the notes and documents that you wish to attach.</p>
+                    <p>Keep an order of your meeting schedules and objectives, their summary and all the notes and
+                        documents that you wish to attach.</p>
                 </div>
                 <div class="d-flex flex-column  col-md-3">
                     <h2>CHECK</h2>
-                    <p>With GRAB boards it is possible to keep the team within the assigned tasks, control the process and respect deadlines, especially if you work by sprints.</p>
+                    <p>With GRAB boards it is possible to keep the team within the assigned tasks, control the process
+                        and respect deadlines, especially if you work by sprints.</p>
                 </div>
                 <div class="d-flex flex-column  col-md-3">
                     <h2>EASE</h2>
-                    <p>With GRAB it is possible to work with teams from different parts of the world in a collaborative and empathetic way while maintaining a good working relationship.</p>
+                    <p>With GRAB it is possible to work with teams from different parts of the world in a collaborative
+                        and empathetic way while maintaining a good working relationship.</p>
                 </div>
             </div>
         </div>
@@ -108,10 +113,10 @@ onAuthStateChanged(auth, (user1) => {
             <h2>ALL THE WORK OF YOUR TEAM IN ONE PLACE.</h2>
             <RouterLink to="/login">
                 <button class="btn d-flex justify-content-center align-items-center gap-2 hover">
-                        <span>TRY NOW</span>
-                        <span class="material-icons-outlined">
-                            east
-                        </span>
+                    <span>TRY NOW</span>
+                    <span class="material-icons-outlined">
+                        east
+                    </span>
                 </button>
             </RouterLink>
         </div>
@@ -119,10 +124,10 @@ onAuthStateChanged(auth, (user1) => {
             <div class="col-md-5 d-flex flex-column justify-content-around align-items-center">
                 <h2>With GRAB PREMIUM, you'll get everything you love about our free version, plus:</h2>
                 <button class="btn d-flex justify-content-center align-items-center gap-2 hover">
-                        <span>PREMIUM</span>
-                        <span class="material-icons-outlined">
-                            east
-                        </span>
+                    <span>PREMIUM</span>
+                    <span class="material-icons-outlined">
+                        east
+                    </span>
                 </button>
             </div>
             <div class="col-md-5 d-flex flex-column justify-content-around align-items-center gap-3">
@@ -162,24 +167,29 @@ onAuthStateChanged(auth, (user1) => {
         </div>
     </div>
 
-<FooterApp />
+    <FooterApp />
 </template>
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
-.width{
-    width: 15rem!important;
+
+.width {
+    width: 15rem !important;
 }
-.hover:hover{
-    background-color: rgb(2, 33, 98)!important;
+
+.hover:hover {
+    background-color: rgb(2, 33, 98) !important;
     transition: .4s linear;
 }
-.hover span{
+
+.hover span {
     transition: .2s linear;
 }
-.hover:hover span{
+
+.hover:hover span {
     transform: translateX(10px);
     transition: .2s linear;
 }
+
 .contenedor-principal {
     width: 100%;
 }
@@ -354,6 +364,7 @@ button .material-icons-outlined {
 .quinta-seccion img {
     width: 100%;
 }
+
 .quinta-seccion h2 {
     font-family: 'Montserrat', sans-serif;
     font-size: 3.5rem;
@@ -379,9 +390,11 @@ button .material-icons-outlined {
     justify-content: space-around;
     align-items: center;
 }
-.sexta-seccion img{
+
+.sexta-seccion img {
     width: 100%;
 }
+
 .sexta-seccion h2 {
     font-family: 'Montserrat', sans-serif;
     font-size: 3.5rem;
@@ -399,6 +412,7 @@ button .material-icons-outlined {
     font-size: 1.5rem;
     font-weight: bold;
 }
+
 .septima-seccion {
     background-image: radial-gradient(circle at 43.84% 120.44%, #5f627f 0, #00214d 50%, #000022 100%);
     display: flex;
@@ -408,13 +422,15 @@ button .material-icons-outlined {
     align-items: center;
     width: 100%;
 }
-.septima-seccion .primer-div{
+
+.septima-seccion .primer-div {
     display: flex;
     flex-wrap: wrap;
     height: 25%;
     padding: 1rem;
 }
-.septima-seccion .primer-div h2{
+
+.septima-seccion .primer-div h2 {
     font-family: 'Montserrat', sans-serif;
     font-size: 2rem;
     font-weight: 600;
@@ -422,13 +438,15 @@ button .material-icons-outlined {
     text-align: center;
     display: flex;
     align-items: center;
-    justify-content: center ;
+    justify-content: center;
     flex-wrap: wrap;
 }
-.septima-seccion .primer-div img{
+
+.septima-seccion .primer-div img {
     width: 50%;
     padding: 2rem;
 }
+
 .septima-seccion .segundo-div {
     padding: 1rem;
     padding-top: 5rem;
@@ -438,14 +456,16 @@ button .material-icons-outlined {
     justify-content: space-around;
 
 }
-.septima-seccion .segundo-div h2{
+
+.septima-seccion .segundo-div h2 {
     font-family: 'Montserrat', sans-serif;
     font-size: 2rem;
     font-weight: bold;
     color: #ffb703;
     text-align: center;
 }
-.septima-seccion .segundo-div p{
+
+.septima-seccion .segundo-div p {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.8vmax;
     color: white;
@@ -453,7 +473,8 @@ button .material-icons-outlined {
     text-align: center;
     padding-top: 1rem;
 }
-.octava-seccion{
+
+.octava-seccion {
     background-image: radial-gradient(circle at 43.84% -20.44%, #5f627f 0, #00214d 50%, #000022 100%);
     display: flex;
     flex-direction: column;
@@ -462,24 +483,28 @@ button .material-icons-outlined {
     align-items: center;
     width: 100%;
 }
-.octava-seccion img{
+
+.octava-seccion img {
     width: 17rem;
 }
-.octava-seccion h2{
+
+.octava-seccion h2 {
     font-family: 'Montserrat', sans-serif;
     font-size: 3vmax;
     font-weight: bold;
     color: #ffb703;
     text-align: center;
 }
-.octava-seccion button{
+
+.octava-seccion button {
     background-color: #ffb703;
     border-radius: 2rem;
     color: white;
     font-weight: bold;
     font-size: 1.5rem;
 }
-.novena-seccion{
+
+.novena-seccion {
     font-family: 'Montserrat', sans-serif;
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../assets/Images/landing3.png);
     background-repeat: no-repeat;
@@ -492,14 +517,16 @@ button .material-icons-outlined {
     align-items: center;
     flex-wrap: wrap;
 }
-.novena-seccion h2{
+
+.novena-seccion h2 {
     font-family: 'Montserrat', sans-serif;
     font-size: 3vmax;
     font-weight: bold;
     color: #ffb703;
     text-align: center;
 }
-.novena-seccion h3{
+
+.novena-seccion h3 {
     font-family: 'Montserrat', sans-serif;
     font-size: 2.5vmax;
     font-weight: bold;
@@ -507,7 +534,8 @@ button .material-icons-outlined {
     text-align: center;
     margin: 0;
 }
-.novena-seccion button{
+
+.novena-seccion button {
     background-color: #ffb703;
     border-radius: 2rem;
     color: white;
@@ -515,18 +543,19 @@ button .material-icons-outlined {
     font-size: 1.5rem;
     margin-top: 1rem;
 }
-.novena-seccion .icono{
-    color:white;
+
+.novena-seccion .icono {
+    color: white;
     font-size: 4rem;
 }
-a{
+
+a {
     text-decoration: none;
 }
 
-@media screen and (max-width: 60rem){
-    .primera-seccion{
+@media screen and (max-width: 60rem) {
+    .primera-seccion {
         background-image: linear-gradient(rgb(0, 149, 186), rgb(0, 149, 186)), url(https://coworkingfy.com/wp-content/uploads/2019/11/trabajo-en-equipo-grupo-figurativo-de-equipo-de-trabajo.jpg);
     }
 }
-    
 </style>

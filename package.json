@@ -16,6 +16,7 @@
     "firebase": "^9.15.0",
     "material-icons": "^1.13.1",
     "pinia": "^2.0.28",
+    "sweetalert2": "^11.6.16",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6"
   },
