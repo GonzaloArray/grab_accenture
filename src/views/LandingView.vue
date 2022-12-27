@@ -83,7 +83,7 @@ onAuthStateChanged(auth, (user1) => {
                 </p>
             </div>
             <div class="col-md-4">
-                <img src="https://emotion.com.py/wp-content/uploads/2022/07/pagina-en-construccion.png" alt="">
+                <img src="../assets/Images/grab.jpg" alt="Construccion">
             </div>
         </div>
         <div class="seccion septima-seccion">
