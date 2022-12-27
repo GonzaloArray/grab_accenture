@@ -11,7 +11,7 @@ export const useSendSpace = defineStore('SendSpace' , ()=>{
 
     const spaceCollection = collection(db, 'space')
 
-    function handleSpace(space) {
+    function handleSpace(space, idUser) {
 
         const idSpace = ref(crypto.randomUUID());
 
@@ -19,6 +19,7 @@ export const useSendSpace = defineStore('SendSpace' , ()=>{
         addDoc(spaceCollection, {
             title: space,
             id: idSpace.value,
+            idUser
         });
 
         name.value = "";

@@ -1,18 +1,23 @@
+import { useUserStore } from './user'
 import { collection, onSnapshot, orderBy, query, where } from "@firebase/firestore";
 import { defineStore } from "pinia"
 import { onMounted, ref } from "vue";
 import { db } from "../utils/firebase";
 
-
 export const useReadBoard = defineStore('ReadBoard', () => {
+
+    const user = useUserStore();
 
     const arrayBoard = ref([]);
     const arrayProyect = ref([]);
-    const nameCollection = collection(db, 'space')
-    const boardCollection = collection(db, 'board')
+    const nameCollection = collection(db, 'space');
+    const boardCollection = collection(db, 'board');
 
-
+    
+    
     onMounted(() => {
+        const todoCollectionQuery = query(nameCollection, where("idUser", "==", user?.usuario?.uid));
+
         onSnapshot(nameCollection, (querySnapshot) => {
             const frPost = [];
 
@@ -20,7 +25,8 @@ export const useReadBoard = defineStore('ReadBoard', () => {
 
                 const todo = {
                     title: doc.data().title,
-                    id: doc.data().id
+                    id: doc.data().id,
+                    idSpace: doc.id
                 }
 
                 frPost.push(todo)
@@ -40,7 +46,8 @@ export const useReadBoard = defineStore('ReadBoard', () => {
                     status: doc.data().status,
                     date: doc.data().date,
                     id: doc.data().id,
-                    idBoard: doc.data().idBoard
+                    idBoard: doc.data().idBoard,
+                    idTablero: doc.id
                 }
 
                 frPost.push(todo)

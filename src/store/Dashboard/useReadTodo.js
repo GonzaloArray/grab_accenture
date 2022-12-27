@@ -5,38 +5,44 @@ import { db } from "../../utils/firebase";
 
 export const useReadTodo = defineStore('readTodo', () => {
 
-    const arrayTodo = ref([]);
+    try {
+        const arrayTodo = ref([]);
 
-    const nameCollection = collection(db, 'tablero')
-    
-    
-    const readTablero = (id) => {
-        const todoCollectionQuery = query(nameCollection, where("idProyect", "==", id));
+        const nameCollection = collection(db, 'tablero')
 
-        onSnapshot(todoCollectionQuery, (querySnapshot) => {
-            const frPost = [];
 
-            querySnapshot.forEach((doc) => {
+        const readTablero = (id) => {
+            const todoCollectionQuery = query(nameCollection, where("idProyect", "==", id));
 
-                const todo = {
-                    name: doc.data().name,
-                    id: doc.data().id,
-                    idProyect: doc.data().idProyect,
-                    idList: doc.id
-                }
+            onSnapshot(todoCollectionQuery, (querySnapshot) => {
+                const frPost = [];
 
-                frPost.push(todo)
+                querySnapshot.forEach((doc) => {
 
+                    const todo = {
+                        name: doc.data().name,
+                        id: doc.data().id,
+                        idProyect: doc.data().idProyect,
+                        idList: doc.id
+                    }
+
+                    frPost.push(todo)
+
+                });
+
+                arrayTodo.value = frPost;
+                arrayTodo.value.sort((a, b) => a.date - b.date)
             });
+        }
 
-            arrayTodo.value = frPost;
-        });
+
+
+        return {
+            arrayTodo,
+            readTablero
+        }
+    } catch (error) {
+        console.log("Hubo un error")
     }
 
-
-
-    return {
-        arrayTodo,
-        readTablero
-    }
 })

@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { auth } from '../utils/firebase'
 import HomeView from '../views/LandingView.vue'
 
 
@@ -15,16 +16,22 @@ const router = createRouter({
       path: '/board/:id',
       name: 'board',
       component: () => import('../views/BoardView.vue'),
+      meta:{reqiureAuth: true}
+
     },
     {
       path: '/dashboard',
       name: 'dashboard',
-      component: () => import('../views/DashboardView.vue')
+      component: () => import('../views/DashboardView.vue'),
+      meta:{reqiureAuth: true}
+
     },
     {
       path:'/work',
       name:'work',
-      component: () => import('../views/WorksView.vue')
+      component: () => import('../views/WorksView.vue'),
+      meta:{reqiureAuth: true}
+
     },
     {
       path:'/about',
@@ -34,7 +41,9 @@ const router = createRouter({
     {
       path:'/contact',
       name:'contact',
-      component: () => import('../views/ContactView.vue')
+      component: () => import('../views/ContactView.vue'),
+      meta:{reqiureAuth: true}
+
     },
     {
       path:'/politic',
@@ -57,6 +66,17 @@ const router = createRouter({
       component: () => import('../views/RegisterView.vue')
     }
   ]
+})
+
+router.beforeEach((to, from, next) => {
+  const rutaAuth = to.matched.some(record => record.meta.reqiureAuth);
+  const user = auth.currentUser;
+
+  if (rutaAuth && user == null) {
+    next({name: 'login'})
+  }else{
+    next();
+  }
 })
 
 export default router

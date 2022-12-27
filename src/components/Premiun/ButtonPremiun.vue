@@ -10,7 +10,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <RouterLink class="btn__premiun rounded-1 text-light" :to="'/' + href">
+    <RouterLink type="button" data-bs-toggle="modal" data-bs-target="#premium" class="btn__premiun rounded-1 text-light" :to="'/' + href">
         <div class="d-flex align-items-center justify-content-center">
             <span class="material-icons-outlined me-2">
                 {{icon}}

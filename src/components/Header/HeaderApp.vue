@@ -20,7 +20,7 @@ function signout() {
 <template>
     <nav class="navbar navbar-expand-lg bg-light px-0 px-md-2">
         <div class="container-fluid">
-            <RouterLink to="/landing" class="me-3">
+            <RouterLink to="" class="me-3">
                 <img src="../../assets/Images/letraGrab.png" alt="Letra de GRAB">
             </RouterLink>
 
@@ -60,9 +60,18 @@ function signout() {
                             <p class="m-0">Login</p>
                         </div>
                     </RouterLink>
-                    <button class="btn btn-danger" v-if="user.existeUsuario" @click="signout()">
-                        Log Out
-                    </button>
+                    <div v-if="user.existeUsuario" class="d-flex gap-3 align-items-center ">
+                        <button type="button"
+                            class="bg__icon btn d-flex gap-2 align-items-center btn-sm btn-light text-danger widthButton fw-bold shadow btn-danger"
+                            @click.prevent="signout()">
+                            <span class="material-icons-outlined">
+                                logout
+                            </span>
+                            <p class="m-0">Log out</p>
+                        </button>
+                        <img :src="user?.usuario?.photoURL" :alt="user?.usuario?.displayName"
+                            class="rounded-circle width">
+                    </div>
                 </div>
             </div>
         </div>
@@ -72,9 +81,23 @@ function signout() {
 a:hover {
     color: #ffb703;
 }
-
+.bg__icon p{
+    transform: translateX(-.6rem);
+}
 .router-link-active {
     color: #ffb703 !important;
+}
+
+.bg__icon span{
+    opacity: 0;
+    transition: .3s linear;
+    transform: translateX(0);
+}
+.bg__icon:hover span{
+    opacity: 1;
+    transition: .3s linear;
+    transform: translateX(-3px);
+
 }
 
 .hover p {
@@ -92,9 +115,6 @@ a:hover {
     transform: translateX(-1rem);
 }
 
-.hover:hover {
-    background-color: #ffb703 !important;
-}
 
 .navbar {
     background-color: #023047 !important;
@@ -109,5 +129,13 @@ a:hover {
 .navbar img:nth-child(1) {
     height: 1rem;
     padding-left: 1rem;
+}
+
+.widthButton {
+    width: 110px;
+}
+
+.width {
+    width: 2rem;
 }
 </style>
