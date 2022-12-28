@@ -2,6 +2,7 @@
 import { collection, deleteDoc, doc, updateDoc } from "@firebase/firestore";
 import { ref } from "@vue/reactivity";
 import { db } from "../../utils/firebase";
+import ButtonSpaceMember from "./SpaceDash/ButtonSpaceMember.vue";
 
 const props = defineProps({
     boardTitle: String,
@@ -56,6 +57,7 @@ const handleDelete = async (idTablero) => {
                     close
                 </span>
             </button>
+            <ButtonSpaceMember :idSpace="id"/>
         </div>
         <form v-else method="POST" @submit.prevent="doneEdit">
             <input type="text" v-model="text" @blur="doneEdit()" @keyup.escape="cancelEdit()" class="input">

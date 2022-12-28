@@ -3,9 +3,10 @@ import { ref } from '@vue/reactivity';
 import ButtomLink from './Buttom/ButtomLink.vue';
 import { useSidebar } from '../../store/Sidebar/useSidebar'
 import ButtonPremiun from '../Premiun/ButtonPremiun.vue';
+import { useUserStore } from '../../store/user';
 
 const sidebar = useSidebar();
-
+const user = useUserStore()
 
 function handleModal() {
 
@@ -29,19 +30,15 @@ function handleModal() {
             <div>
                 <ButtomLink icon="home" title="Home" href="" />
                 <ButtomLink icon="space_dashboard" title="Dashboard" href="dashboard" />
-                <!-- <ButtomLink icon="person" title="Profile" href="profile" /> -->
-                <!-- <ButtomLink icon="forward_to_inbox" title="Contact" href="contact" /> -->
-                <!-- <ButtomLink icon="person_add" title="Follower" href="follower" /> -->
             </div>
 
 
             <div>
-                <ButtomLink icon="app_registration" title="Register" href="register" />
-                <ButtomLink icon="login" title="Login" href="login" />
+                <ButtomLink v-if="!user.existeUsuario" icon="app_registration" title="Register" href="register" />
+                <ButtomLink v-if="!user.existeUsuario" icon="login" title="Login" href="login" />
 
             </div>
 
-            <!-- <ButtomLink icon="numbers" title="About us" href="about" /> -->
         </ul>
 
         <div class="d-flex align-items-center position-absolute bottom-0 mb-3">

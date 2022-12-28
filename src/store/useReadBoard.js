@@ -1,5 +1,5 @@
 import { useUserStore } from './user'
-import { collection, onSnapshot, orderBy, query, where } from "@firebase/firestore";
+import { collection, doc, getDocs, onSnapshot, query, where } from "@firebase/firestore";
 import { defineStore } from "pinia"
 import { onMounted, ref } from "vue";
 import { db } from "../utils/firebase";
@@ -10,12 +10,46 @@ export const useReadBoard = defineStore('ReadBoard', () => {
 
     const arrayBoard = ref([]);
     const arrayProyect = ref([]);
+    // const arrayFriend = ref([]);
     const nameCollection = collection(db, 'space');
     const boardCollection = collection(db, 'board');
 
-    
-    
-    onMounted(() => {
+
+
+    onMounted( async() => {
+
+
+        const currentUserId = user?.usuario?.uid
+
+        const querySnapshot = await getDocs(collection(db, "space"));
+        querySnapshot.forEach((doc) => {
+            doc.data()
+        });
+        const spaces = querySnapshot.docs.map(doc => doc.data())
+        const userIds = spaces.map(space => space.idFriend).flat()
+
+        if (userIds.includes(currentUserId)) {
+            const todoCollectionQuery = query(nameCollection, where("idUser", "==", currentUserId))
+
+            onSnapshot(todoCollectionQuery, (querySnapshot) => {
+                const frPost = []
+
+                querySnapshot.forEach((doc) => {
+                    const todo = {
+                        title: doc.data().title,
+                        id: doc.data().id,
+                        idSpace: doc.id,
+                    }
+                    frPost.push(todo)
+                })
+
+                arrayProyect.value = frPost
+
+            })
+        }
+
+
+/* 
         const todoCollectionQuery = query(nameCollection, where("idUser", "==", user?.usuario?.uid));
 
         onSnapshot(todoCollectionQuery, (querySnapshot) => {
@@ -26,7 +60,7 @@ export const useReadBoard = defineStore('ReadBoard', () => {
                 const todo = {
                     title: doc.data().title,
                     id: doc.data().id,
-                    idSpace: doc.id
+                    idSpace: doc.id,
                 }
 
                 frPost.push(todo)
@@ -34,7 +68,7 @@ export const useReadBoard = defineStore('ReadBoard', () => {
             });
 
             arrayProyect.value = frPost;
-        });
+        }); */
 
         onSnapshot(boardCollection, (querySnapshot) => {
             const frPost = [];

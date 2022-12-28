@@ -9,6 +9,7 @@ import ModalHagTags from "../ModalTask/ModalHagTags.vue";
 import ModalTaskAddComment from "../ModalTask/ModalTaskAddComment.vue";
 import ModalReadComment from "../ModalTask/ModalReadComment.vue";
 import ModalTaskUser from "./ModalTaskUser.vue";
+import ModalTaskMember from "./ModalTaskMember.vue";
 
 
 const modalTask = useModal();
@@ -16,6 +17,7 @@ const user = useUserStore();
 
 // State
 const editMessage = ref(false);
+const modal = ref(false);
 
 
 function handleEdit() {
@@ -25,7 +27,9 @@ function handleEdit() {
 function handleClose() {
     editMessage.value = false;
 }
-
+function handleModal() {
+    modal.value = !modal.value;
+}
 function handleSubmit(id, title) {
 
     const taskCollection = doc(db, "task", id);
@@ -89,9 +93,11 @@ function handleSubmit(id, title) {
                                 </button>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-4 position-relative">
                             <h2 class="fs-6">Suggestions</h2>
-                            <button class="btn btn-primary btn-sm mt-2">Members</button>
+                            <button @click.prevent="handleModal" class="btn btn-primary btn-sm mt-2">Members</button>
+
+                            <ModalTaskMember v-if="modal"/>
                         </div>
 
                         <hr>

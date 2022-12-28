@@ -24,7 +24,7 @@ onAuthStateChanged(auth, (user1) => {
                 </div>
                 <div class="col-md-4 d-flex flex-column align-items-center p-2">
                     <p>Start writing <br>your homework</p>
-                    <RouterLink to="/login">
+                    <RouterLink v-if="!user.existeUsuario" to="/login">
                         <button class="btn px-4 py-2 d-flex justify-content-center align-items-center gap-2 hover">
                             <p class="m-0 fs-4">TRY NOW</p>
                             <span class="material-icons-outlined">
@@ -111,7 +111,7 @@ onAuthStateChanged(auth, (user1) => {
         <div class="seccion octava-seccion">
             <img src="../assets/Images/logoGrab.png" alt="">
             <h2>ALL THE WORK OF YOUR TEAM IN ONE PLACE.</h2>
-            <RouterLink to="/login">
+            <RouterLink v-if="!user.existeUsuario" to="/login">
                 <button class="btn d-flex justify-content-center align-items-center gap-2 hover">
                     <span>TRY NOW</span>
                     <span class="material-icons-outlined">

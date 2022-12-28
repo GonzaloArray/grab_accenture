@@ -1,4 +1,4 @@
-import { addDoc, collection } from "@firebase/firestore";
+import { addDoc, arrayUnion, collection } from "@firebase/firestore";
 import { defineStore } from "pinia";
 import { ref } from "vue";
 import { db } from "../utils/firebase";
@@ -12,7 +12,7 @@ export const useSendSpace = defineStore('SendSpace' , ()=>{
     const spaceCollection = collection(db, 'space')
 
     function handleSpace(space, idUser) {
-        console.log(space)
+       
         if (space !== "") {
             const idSpace = ref(crypto.randomUUID());
     
@@ -20,7 +20,8 @@ export const useSendSpace = defineStore('SendSpace' , ()=>{
             addDoc(spaceCollection, {
                 title: space,
                 id: idSpace.value,
-                idUser
+                idUser,
+                idFriend: arrayUnion(idUser)
             });
             
         }
