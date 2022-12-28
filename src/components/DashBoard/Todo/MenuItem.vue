@@ -1,11 +1,14 @@
 <script setup>
+import { useDeletePost } from '../../../store/Dashboard/CRUD/useDelete';
+import { useEditBoard } from '../../../store/Dashboard/CRUD/useEditBoard';
 import ButtonItem from './ButtonItem.vue';
 
 const props = defineProps({
     idList: String
 })
 
-
+const deleteList = useDeletePost();
+const editBoard = useEditBoard();
 
 </script>
 
@@ -17,9 +20,9 @@ const props = defineProps({
         </span>
     </button>
     <ul class="dropdown-menu rounded-1 shadow p-0 post" aria-labelledby="dropdownMenuButton1">
-        <ButtonItem icon="edit" info="Edit" />
+        <ButtonItem @click.prevent="editBoard.handleModal" icon="edit" info="Edit" />
         <ButtonItem icon="share" info="Share" />
-        <ButtonItem :id="idList" icon="delete_forever" info="Remove" />
+        <ButtonItem @click.prevent="deleteList.handleDelete(idList)" icon="delete_forever" info="Remove" />
     </ul>
 </template>
 

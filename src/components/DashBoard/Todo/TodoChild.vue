@@ -8,11 +8,13 @@ import { db } from '../../../utils/firebase';
 import InputNew from '../../InputNew.vue';
 import ItemTask from './ItemTask.vue';
 import MenuItem from './MenuItem.vue';
+import { useEditBoard } from '../../../store/Dashboard/CRUD/useEditBoard';
 
 
 const readTablero = useReadTodo();
 const readTask = useReadTask();
 const modalTask = useModal();
+const edit = useEditBoard();
 
 const props = defineProps({
     routeId: String,
@@ -56,7 +58,10 @@ onMounted(() => {
     <div class="list" @drop="onDrop($event, board)" @dragover.prevent @dragenter.prevent
         v-for="board in readTablero.arrayTodo" :key="board.id">
         <div class="d-flex justify-content-between align-items-center">
-            <h2 class="list-title">{{ board.name }}</h2>
+            <form @keyup.esc="edit.handleCancel" @submit.prevent="edit.handleEdit(board.id, board.name)" v-if="edit.modal" method="POST" class="ms-2">
+                <input type="text" v-model="board.name" class="border ps-2 bg__input">
+            </form>
+            <h2 v-else class="list-title">{{ board.name }}</h2>
             <MenuItem :idList="board.idList" />
         </div>
         <div class="input mx-2">
@@ -67,6 +72,10 @@ onMounted(() => {
 </template>
 
 <style scoped>
+.border{
+    border: 0px solid!important;
+    border-bottom: 2px solid #00000068!important;
+}
 .list {
     flex: 0 0 17.5rem;
     display: flex;
@@ -77,7 +86,9 @@ onMounted(() => {
     margin-right: 1rem;
     cursor: pointer;
 }
-
+.bg__input{
+    background-color: #A2A3A3!important;
+}
 .list:last-of-type {
     margin-right: 0;
 }
