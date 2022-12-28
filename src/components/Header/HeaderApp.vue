@@ -12,17 +12,17 @@ const user = useUserStore()
 function signout() {
     const auth = getAuth();
     signOut(auth).then(() => {
-        const nameCollection = collection(db, 'user_friend')
+/*         const nameCollection = collection(db, 'user_friend')
 
         const todoCollectionQuery = query(nameCollection, where("uid", "==", user.usuario.uid));
 
         updateDoc(todoCollectionQuery, {
             online: false
         });
-        
+         */
+        user.usuario = null;
         router.push('/')
         
-        user.usuario = null;
 
 
     }).catch((error) => {
