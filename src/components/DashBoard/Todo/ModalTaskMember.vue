@@ -6,6 +6,10 @@ import { useUserRegister } from "../../../store/Dashboard/Space/useRegister";
 import { useReadBoard } from "../../../store/useReadBoard";
 import { db } from "../../../utils/firebase";
 
+const props = defineProps({
+    idTask: String,
+})
+
 const useSpace = useReadBoard();
 const userRegister = useUserRegister();
 
@@ -23,7 +27,8 @@ function handleAdd(item) {
         uid: item.uid,
         date: Date.now(),
         idBoard: routeId,
-        online: item.online
+        online: item.online,
+        idTask: props.idTask
     });
 }
 

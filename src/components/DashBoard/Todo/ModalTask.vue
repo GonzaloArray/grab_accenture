@@ -97,7 +97,7 @@ function handleSubmit(id, title) {
                             <h2 class="fs-6">Suggestions</h2>
                             <button @click.prevent="handleModal" class="btn btn-primary btn-sm mt-2">Members</button>
 
-                            <ModalTaskMember v-if="modal"/>
+                            <ModalTaskMember v-if="modal" :idTask="modalTask?.arrayItem?.idFire"/>
                         </div>
 
                         <hr>
@@ -129,11 +129,11 @@ function handleSubmit(id, title) {
                             </span>
                             <h2 class="fs-5">Members</h2>
                         </div>
-                        <ModalTaskUser />
+                        <ModalTaskUser v-if="modalTask?.arrayItem" :idTask="modalTask?.arrayItem?.idFire"/>
 
                         <hr>
 
-                        <ModalTaskAddComment v-if="modalTask?.arrayItem" :idTask="modalTask?.arrayItem?.idFire"/>
+                        <ModalTaskAddComment :idTask="modalTask?.arrayItem?.idFire"/>
                         <ModalReadComment v-if="modalTask?.arrayItem" :idTask="modalTask?.arrayItem?.idFire"/>
                     </section>
                 </div>

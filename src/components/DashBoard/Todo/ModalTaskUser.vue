@@ -1,6 +1,7 @@
 <script setup>
-import { collection, deleteDoc, doc, onSnapshot } from "@firebase/firestore";
+import { collection, deleteDoc, doc, onSnapshot, query, where } from "@firebase/firestore";
 import { ref } from "@vue/reactivity";
+import { computed } from "@vue/runtime-core";
 import { useUserStore } from "../../../store/user";
 import { db } from "../../../utils/firebase";
 
@@ -8,30 +9,41 @@ const user = useUserStore()
 
 const arrayUser = ref([]);
 
+const props = defineProps({
+    idTask: String
+})
+
 const nameCollection = collection(db, 'user_friend')
+const userAssign = computed(() => {
 
-onSnapshot(nameCollection, (querySnapshot) => {
-    const frPost = [];
+    const todoCollectionQuery = query(nameCollection, where("idTask", "==", props?.idTask));
 
-    querySnapshot.forEach((doc) => {
+    onSnapshot(todoCollectionQuery, (querySnapshot) => {
+        const frPost = [];
 
-        const todo = {
-            name: doc.data().name,
-            photoURL: doc.data().photoURL,
-            id: doc.data().id,
-            uid: doc.data().uid,
-            date: doc.data().date,
-            idBoard: doc.data().idBoard,
-            online: doc.data().online,
-            idUser: doc.id
-        }
 
-        frPost.push(todo)
+        querySnapshot.forEach((doc) => {
 
+            const todo = {
+                name: doc.data().name,
+                photoURL: doc.data().photoURL,
+                id: doc.data().id,
+                uid: doc.data().uid,
+                date: doc.data().date,
+                idBoard: doc.data().idBoard,
+                online: doc.data().online,
+                idUser: doc.id
+            }
+
+            frPost.push(todo)
+
+        });
+
+        arrayUser.value = frPost;
     });
+})
 
-    arrayUser.value = frPost;
-});
+
 
 const handleDelete = async (id) => {
     await deleteDoc(doc(nameCollection, id));
@@ -39,15 +51,19 @@ const handleDelete = async (id) => {
 
 </script>
 <template>
-    <section class="d-flex align-items-center gap-2">
-        <div v-for="user in arrayUser" :key="user.id" class="bg-light my-3 ms-2 card rounded-circle position-relative hover"
-            :class="user.online && 'bg__online'">
-            <img :src="user.photoURL" class="escudo rounded-circle" alt="Escudo Premiun">
-            <button 
-                type="button"
-                class="position-absolute end-0 start-0 bottom-0 top-0 btn rounded-pill text-light"
-                @click.prevent="handleDelete(user.idUser)"
-            >
+    {{ userAssign }}
+    <section class="d-flex align-items-center gap-2 py-2">
+        <div v-for="user in arrayUser" :key="user?.id"
+            class="bg-light my-3 ms-2 card rounded-circle  position-relative hover"
+            :class="user?.online && 'loader'">
+            <div class="position-relative">
+                <div class="face">
+                </div>
+                <img :src="user?.photoURL" class="width rounded-circle" alt="Escudo Premiun">
+
+            </div>
+            <button type="button" class="position-absolute end-0 start-0 bottom-0 top-0 btn rounded-pill text-light"
+                @click.prevent="handleDelete(user?.idUser)">
                 <span class="material-icons-outlined fs-7">
                     close
                 </span>
@@ -56,17 +72,20 @@ const handleDelete = async (id) => {
     </section>
 </template>
 <style scoped>
-.escudo {
-    width: 2rem;
+.width {
+    width: 2.3rem;
 }
-.hover button{
+
+.hover button {
     display: none;
 }
-.hover:hover button{
+
+.hover:hover button {
     display: block;
     background-color: #0000005d;
     transition: .4s linear;
 }
+
 :root {
     --card-height: 65vh;
     --card-width: calc(var(--card-height) / 1.5);
@@ -77,72 +96,62 @@ const handleDelete = async (id) => {
 
 }
 
-.card {
-    width: var(--card-width);
-    height: var(--card-height);
-    padding: 3px;
+.loader .face .circle {
+    position: absolute;
+    width: 50%;
+    height: 0.1em;
+    top: 50%;
+    left: 50%;
+    background-color: transparent;
+    transform: rotate(var(--deg));
+    transform-origin: left;
+}
+
+.loader .face .circle::before {
+    position: absolute;
+    top: -0.5em;
+    right: -0.5em;
+    content: '';
+    width: 1em;
+    height: 1em;
+    background-color: currentColor;
+    border-radius: 50%;
+    box-shadow: 0 0 2em,
+        0 0 4em, 0 0 6em, 0 0 10em, 0 0 0 0.5em rgba(255, 255, 0, 0.1);
+}
+
+@keyframes animate023945 {
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+.loader {
+    width: 2em;
+    height: 2em;
+    font-size: 17px;
     position: relative;
-    border-radius: 6px;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
     display: flex;
-    font-size: 1.5em;
-    color: rgb(88 199 250 / 0%);
-    cursor: pointer;
-    font-family: cursive;
+    align-items: center;
+    justify-content: center;
 }
 
-.card:hover {
-    color: rgb(88 199 250 / 100%);
-    transition: color 1s;
-}
-
-.card:hover:before,
-.card:hover:after {
-    animation: none;
-    opacity: 0;
-}
-
-
-.card::before {
-    content: "";
-    width: 104%;
-    height: 102%;
-    border-radius: 8px;
-    background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
+.loader .face {
     position: absolute;
-    z-index: -1;
-    top: -1%;
-    left: -2%;
-    animation: spin 2.5s linear infinite;
+    border-radius: 50%;
+    border-style: solid;
+    animation: animate023945 3s linear infinite;
 }
 
-.card::after {
-    position: absolute;
-    content: "";
-    top: calc(var(--card-height) / 6);
-    left: 0;
-    right: 0;
-    z-index: -1;
-    height: 100%;
+.loader .face:nth-child(1) {
     width: 100%;
-    margin: 0 auto;
-    transform: scale(0.8);
-    filter: blur(calc(var(--card-height) / 6));
-    background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
-    opacity: 1;
-    transition: opacity .5s;
-    animation: spin 2.5s linear infinite;
+    height: 100%;
+    color: rgb(0, 255, 0);
+    border-color: currentColor transparent transparent currentColor;
+    border-width: 0.2em 0.2em 0em 0em;
+    --deg: -45deg;
+    animation-direction: normal;
+
 }
 
-@keyframes spin {
-    0% {
-        --rotate: 0deg;
-    }
-
-    100% {
-        --rotate: 360deg;
-    }
-}
 </style>

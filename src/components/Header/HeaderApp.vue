@@ -3,13 +3,25 @@ import { RouterLink } from 'vue-router';
 import { useUserStore } from "../../store/user.js";
 import { getAuth, signOut } from '@firebase/auth';
 import CreateBoard from '../DashBoard/CreateBoard.vue';
+import router from '../../router/index.js';
+import { doc, updateDoc } from '@firebase/firestore';
+import { db } from '../../utils/firebase.js';
 
 const user = useUserStore()
 
 function signout() {
     const auth = getAuth();
     signOut(auth).then(() => {
-        alert("deslogueado")
+
+        const taskCollection = doc(db, "user_friend", user.usuario.uid);
+
+        updateDoc(taskCollection, {
+            online: false
+        });
+
+        user.usuario = null;
+
+        router.push('/')
     }).catch((error) => {
 
     });
@@ -78,23 +90,25 @@ function signout() {
     </nav>
 </template>
 <style scoped>
-
 a:hover {
     color: #ffb703;
 }
-.bg__icon p{
+
+.bg__icon p {
     transform: translateX(-.6rem);
 }
+
 .router-link-active {
     color: #ffb703 !important;
 }
 
-.bg__icon span{
+.bg__icon span {
     opacity: 0;
     transition: .3s linear;
     transform: translateX(0);
 }
-.bg__icon:hover span{
+
+.bg__icon:hover span {
     opacity: 1;
     transition: .3s linear;
     transform: translateX(-3px);

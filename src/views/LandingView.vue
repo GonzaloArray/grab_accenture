@@ -72,7 +72,7 @@ onAuthStateChanged(auth, (user1) => {
         <div class="seccion quinta-seccion">
             <div class=" d-flex flex-column align-items-center justify-content-center col-md-5">
                 <img src="../assets/Images/landing2.5.png" alt="">
-                <h2 class="mb-3 text-center">IDEAS IN COMUNITY</h2>
+                <h2 class="mb-3 text-center">IDEAS IN COMMUNITY</h2>
                 <p class="text-center">Let your team shoot a rain and organize them.</p>
             </div>
         </div>

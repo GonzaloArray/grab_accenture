@@ -16,7 +16,7 @@ import { RouterLink } from 'vue-router';
           <div class="card border-0" style="width: 18rem;">
             <RouterLink to="/about">
               <div class="card-body">
-                <h5 class="card-title">About GRAP</h5>
+                <h5 class="card-title">About GRAB</h5>
                 <p class="card-subtitle mb-2 text-muted">What's behind the board</p>
               </div>
             </RouterLink>
