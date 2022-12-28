@@ -26,10 +26,12 @@ export const useReadBoard = defineStore('ReadBoard', () => {
             doc.data()
         });
         const spaces = querySnapshot.docs.map(doc => doc.data())
+        console.log(spaces)
         const userIds = spaces.map(space => space.idFriend).flat()
+        console.log(userIds)
 
         if (userIds.includes(currentUserId)) {
-            const todoCollectionQuery = query(nameCollection, where("idUser", "==", currentUserId))
+            const todoCollectionQuery = query(nameCollection, where("idFriend", "array-contains", currentUserId))
 
             onSnapshot(todoCollectionQuery, (querySnapshot) => {
                 const frPost = []
@@ -44,7 +46,7 @@ export const useReadBoard = defineStore('ReadBoard', () => {
                 })
 
                 arrayProyect.value = frPost
-
+                
             })
         }
 
