@@ -4,7 +4,7 @@ import { useUserStore } from "../../store/user.js";
 import { getAuth, signOut } from '@firebase/auth';
 import CreateBoard from '../DashBoard/CreateBoard.vue';
 import router from '../../router/index.js';
-import { doc, updateDoc } from '@firebase/firestore';
+import { doc, query, updateDoc, where } from '@firebase/firestore';
 import { db } from '../../utils/firebase.js';
 
 const user = useUserStore()
@@ -12,16 +12,19 @@ const user = useUserStore()
 function signout() {
     const auth = getAuth();
     signOut(auth).then(() => {
+        const nameCollection = collection(db, 'user_friend')
 
-        const taskCollection = doc(db, "user_friend", user.usuario.uid);
+        const todoCollectionQuery = query(nameCollection, where("uid", "==", user.usuario.uid));
 
-        updateDoc(taskCollection, {
+        updateDoc(todoCollectionQuery, {
             online: false
         });
-
+        
+        router.push('/')
+        
         user.usuario = null;
 
-        router.push('/')
+
     }).catch((error) => {
 
     });
